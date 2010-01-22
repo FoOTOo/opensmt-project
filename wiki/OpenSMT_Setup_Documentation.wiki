@@ -13,10 +13,15 @@ OpenSMT Setup Documentation
 
 5. Change the authority of these configuration directories to 777. The reason is as step 4. Use commands:
     chmod -R 777 /etc/sfw
+
     chmod -R 777 /etc/ftpd
+
     chmod -R 777 /etc/apache2/2.2
+
     chmod -R 777 /etc/default
+
     chmod -R 777 /etc/ssh
+
     chmod -R 777 /etc/rsyncd.conf
 
 6. restart http service.
