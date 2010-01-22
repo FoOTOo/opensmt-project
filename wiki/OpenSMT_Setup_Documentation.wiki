@@ -1,11 +1,12 @@
 #labels Phase-Deploy
-OpenSMT Setup Documentation
+OpenSMT Install Guide
 
 1. Install web stack.
-   command: pfexec pkg install amp-dev
+   
+  $ pfexec pkg install webstack-ui
 
 2. Install iscsi and restart your computer to make iscsi service work.
-   command: pfexec pkg install storage-server SUNWiscsit.
+  $ pfexec pkg install storage-server SUNWiscsit.
 
 3. Copy file opensmt/httpd.conf to /etc/apache2/2.2/httpd.conf to overlap orginal apache configurations.
 
