@@ -1,7 +1,7 @@
 #labels Phase-Deploy
-OpenSMT Install Guide
+OpenSMT Install Guide（Draft）
 
-1. Install web stack.
+1.Install web stack.
    
   $ pfexec pkg install webstack-ui
 
@@ -12,18 +12,14 @@ OpenSMT Install Guide
 
 4. Copy opensmt to /var/apache2/2.2/htdocs and change the authority to 777(type command: chmod -R 777 /var/apache2/2.2/htdocs/opensmt). The reason why we must change the authority of opensmt to 777 is that we need to have the authority to execute some commands such as modifying the configuration file of some services.
 
-5. Change the authority of these configuration directories to 777. The reason is as step 4. Use commands:
-    chmod -R 777 /etc/sfw
-
-    chmod -R 777 /etc/ftpd
-
-    chmod -R 777 /etc/apache2/2.2
-
-    chmod -R 777 /etc/default
-
-    chmod -R 777 /etc/ssh
-
-    chmod -R 777 /etc/rsyncd.conf
+5. Change the authority of these configuration directories to 777. The reason is as step 4. 
+    $ pfexec chmod -R 777 /etc/sfw
+    $ pfexec chmod -R 777 /etc/ftpd
+    $ pfexec chmod -R 777 /etc/apache2/2.2
+    $ pfexec chmod -R 777 /etc/default
+    $ pfexec chmod -R 777 /etc/ssh
+    $ pfexec chmod -R 777 /etc/rsyncd.conf
 
 6. Restart http service.
     command: svcadm restart http
+7. Open a brower and visit http://localhost/site/ 
