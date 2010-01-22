@@ -1,15 +1,15 @@
 #labels Phase-Deploy
 OpenSMT Setup Documentation
 
-1. install web stack.
+1. Install web stack.
    command: pfexec pkg install amp-dev
 
 2. Install iscsi and restart your computer to make iscsi service work.
    command: pfexec pkg install storage-server SUNWiscsit.
 
-3. copy file opensmt/httpd.conf to /etc/apache2/2.2/httpd.conf to overlap orginal apache configurations.
+3. Copy file opensmt/httpd.conf to /etc/apache2/2.2/httpd.conf to overlap orginal apache configurations.
 
-4. copy opensmt to /var/apache2/2.2/htdocs and change the authority to 777(type command: chmod -R 777 /var/apache2/2.2/htdocs/opensmt). The reason why we must change the authority of opensmt to 777 is that we need to have the authority to execute some command such as modifying the configuration file of some services.
+4. Copy opensmt to /var/apache2/2.2/htdocs and change the authority to 777(type command: chmod -R 777 /var/apache2/2.2/htdocs/opensmt). The reason why we must change the authority of opensmt to 777 is that we need to have the authority to execute some command such as modifying the configuration file of some services.
 
 5. Change the authority of these configuration directories to 777. The reason is as step 4. Use commands:
     chmod -R 777 /etc/sfw
@@ -24,5 +24,5 @@ OpenSMT Setup Documentation
 
     chmod -R 777 /etc/rsyncd.conf
 
-6. restart http service.
+6. Restart http service.
     command: svcadm restart http
