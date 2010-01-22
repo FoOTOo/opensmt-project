@@ -1,5 +1,6 @@
 #labels Phase-Deploy
 OpenSMT Setup Documentation
+
 1. install web stack.
    command: pfexec pkg install amp-dev
 
