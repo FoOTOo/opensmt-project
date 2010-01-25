@@ -16,15 +16,7 @@ OpenSMT Install Guide（Draft）
 
 2. Copy file opensmt/httpd.conf to /etc/apache2/2.2/httpd.conf to overlap orginal apache configurations.
 
-3. Create /etc/rsyncd.conf and write the following lines:
-    
-    max connections = 4
-
-    log file = /var/log/rsyncd.log
-
-    pid file = /var/run/rsyncd.pid
-
-    syslog facility = daemon
+3. Copy opensmt/rsyncd.conf-example to /etc/ and rename it to rsyncd.conf
 
 4. Copy opensmt to /var/apache2/2.2/htdocs and change the authority to 777(type command: chmod -R 777 /var/apache2/2.2/htdocs/opensmt). The reason why we must change the authority of opensmt to 777 is that we need to have the authority to execute some commands such as modifying the configuration file of some services.
 
