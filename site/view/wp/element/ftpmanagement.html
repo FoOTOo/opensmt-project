@@ -1,0 +1,110 @@
+<div class="admin-panel-wrap">
+    <div class="icon32 icon-options-general">
+        <br/>
+    </div>
+    <h2>Services | FTP</h2>
+    <{if $execMessage}> 
+    <div id = "execMessage" class = "updated fade" style = "background-color: rgb(255, 251, 204);">
+	<{section name=line loop=$execMessage}>
+	<p>
+		<strong><{$execMessage[line]}></strong>
+	</p>
+	<{/section}>
+    </div>
+    <{else}>
+    <{/if}>
+    <form action="" method="post">    
+        <table class="form-table">
+            <tbody>
+                <tr valign="top">
+                    <th scope="row">
+                        <label>File Transfer Protocol</label>
+                    </th>
+                </tr>
+                <tr valign="top">
+                    <th scope="row">
+                        <label>TCP port</label>
+                    </th>
+		    <td>
+				<input class='small-text' type = "text" name="port" id = "port"  value="<{$oport}>"> Default is 21.
+                    </td>
+                </tr>
+                <tr valign="top">
+                    <th scope="row">
+                        <label>Number of clients</label>
+                    </th>
+		    <td>
+			    <input class ='small-text' type = 'text' name = "clients_num" id = "clients_num" value = 5> Maximum number of simultaneous clients.
+                    </td>
+                </tr>
+                <tr valign="top">
+		    <th scope="row">
+			<label>Max. conn. per IP</label>
+                    </th>
+		    <td>
+			    <input class = 'small-text' type = 'text' name = 'max_conn' id = 'max_conn' value = 2>Maximum number of connections per IP address (0 = unlimited).
+                    </td>
+                </tr>
+                <tr valign="top">
+		    <th scope="row">
+			<label>Max. login attempts</label>
+                    </th>
+		    <td>
+			    <input class = 'small-text' type = 'text' name = 'max_login' id = 'max_login' value = "<{$originLogin}>"> Maximum number of allowed password attempts before disconnection.
+                    </td>
+                </tr>
+                <tr valign="top">
+                    <th scope="row">
+                        <label>Timeout</label>
+                    </th>
+		    <td>
+				<input class = 'small-text' type = 'text' name = 'timeout' id = 'timeout' value = "<{$otimeout}>">Maximum idle time in seconds.
+		    </td>
+	        </tr>
+ 		<tr valign = "top">
+		    <th scope = "row">
+			<label>Permit root login</label>
+		    </th>
+		    <td>
+			    <input type = checkbox name = "permit_root_login"> Specifies whether it is allowed to login as superuser (root) directly. 
+		    </td>
+	    	</tr>
+
+ 		<tr valign = "top">
+		    <th scope = "row">
+			<label>Anonymous users only</label>
+		    </th>
+		    <td>
+			    <input type = checkbox name = "anonymous_user_only">Only allow anonymous users. Use this on a public FTP site with no remote FTP access to real accounts. 
+		    </td>
+	    	</tr>
+
+ 		<tr valign = "top">
+		    <th scope = "row">
+			<label>Local users only</label>
+		    </th>
+		    <td>
+			    <input type = checkbox name = "local_user_only"> Only allow authenticated users. Anonymous logins are prohibited. 
+		    </td>
+	    	</tr>
+	    
+ 		<tr valign = "top">
+		    <th scope = "row">
+			<label>Banner</label>
+		    </th>
+		    <td>
+				<textarea name = "Banner"><{$obanners}></textarea><br>
+			    Greeting banner displayed by FTP when a connection first comes in.
+		    </td>
+	    	</tr>
+            </tbody>
+    	</table>
+		<input class="regular-text" type = hidden readonly="" name = "originLogin" id = "originLogin" value = "<{$originLogin}>"/>
+		<input class="regular-text" type = hidden readonly="" name = "obanners" id = "obanners" value = "<{$obanners}>"/>
+		<input class="regular-text" type = hidden readonly="" name = "otimeout" id = "otimeout" value = "<{$otimeout}>"/>
+		<input class="regular-text" type = hidden readonly="" name = "oport" id = "oport" value = "<{$oport}>"/>
+        <p class="submit">
+            <input class="button-primary" type="submit" value="Save and Restart" name="Submit"/>
+        </p>
+    </form>
+</div>

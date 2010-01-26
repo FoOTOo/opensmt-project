@@ -1,0 +1,42 @@
+<div class="admin-panel-wrap">
+    <div class="icon32 icon-options-general">
+        <br/>
+    </div>
+    <h2>DNS Settings</h2>
+    <{if $execMessage}>
+    <div id="execMessage" class="updated fade" style="background-color: rgb(255, 251, 204);">
+        <{section name=line loop=$execMessage}>
+        <p>
+            <strong><{$execMessage[line]}></strong>
+        </p>
+        <{/section}>
+    </div>
+    <{else}>
+    <{/if}>
+    <form action="" method="post">
+        <table class="form-table">
+            <tbody>
+                <tr valign="top">
+                    <th scope="row">
+                        <label>Primary DNS:</label>
+                    </th>
+                    <td>
+                        <input class="regular-text" type="text" name="pDNS" id="pDNS" value="<{$dns[0]}>"/>
+                    </td>
+                </tr>
+                <tr valign="top">
+                    <th scope="row">
+                        <label>Secondary DNS:</label>
+                    </th>
+                    <td>
+                        <input class="regular-text" type="text" name="sDNS" id="sDNS" value="<{$dns[1]}>"/>
+                    </td>
+                </tr>
+                
+            </tbody>
+        </table>
+        <p class="submit">
+            <input class="button-primary" type="submit" value="Update" name="Submit"/>
+        </p>
+    </form>
+</div>

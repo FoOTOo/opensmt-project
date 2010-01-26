@@ -1,0 +1,63 @@
+<div class="admin-panel-wrap">
+    <div class="icon32 icon-options-general">
+        <br/>
+    </div>
+    <h2>zfs create</h2>
+    <{if $execMessage}>
+    <div id="execMessage" class="updated fade" style="background-color: rgb(255, 251, 204);">
+        <{section name=line loop=$execMessage}>
+        <p>
+            <strong><{$execMessage[line]}></strong>
+        </p>
+        <{/section}>
+    </div>
+    <{else}>
+    <{/if}>
+    <form action="" method="post">
+        <table class="form-table">
+            <tbody>
+                <tr valign="top">
+                    <th scope="row">
+                        <label>zfs father</label>
+                    </th>
+		    <td>
+			    <select name="zpool_name">
+				    <{foreach from=$zfsName item = zpool}>
+				    <option value = "<{$zpool}>"><{$zpool}></option>
+				    <{/foreach}>
+			    </select>
+                    </td>
+                </tr>
+                <tr valign="top">
+                    <th scope="row">
+                        <label>zfs name</label>
+                    </th>
+                    <td>
+                        <input class="regular-text" type="text" name="zfs_name" id="zfs_name" value=""/>
+                        <pre>
+If you want to create, choose the father of your zfs by 'zfs father', and write your zfs name here.
+If you want to destroy a zfs, simply choose the zfs you want to destroy by 'zfs father', and write nothing here.
+If you want to rename a zfs, choose the zfs you want to rename by 'zfs father', and wrtie the new name here.
+                        </pre>
+                    </td>
+                </tr>
+                <tr valign="top">
+                    <th scope="row">
+                        <label>Create/Destroy</label>
+                     </th>
+                     <td>
+			    <select name="op_type">
+				    <option value="create">create</option>
+                                    <option value="destroy">destroy</option>
+                                    <option value="rename">rename</option>
+			    </select>
+                      </td>
+                </tr>
+
+            </tbody>
+        </table>
+        <p class="submit">
+            <input class="button-primary" type="submit" value="Do!" name="Submit"/>
+        </p>
+    </form>
+</div>

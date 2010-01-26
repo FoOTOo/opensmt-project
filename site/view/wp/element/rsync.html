@@ -1,0 +1,41 @@
+<div class="admin-panel-wrap">
+    <div class="icon32 icon-options-general">
+        <br/>
+    </div>
+    <div class="admin-panel-wrap">
+        <h2>Rsync List</h2>
+        <form class="posts-filter" action="editrsync" method="post" id="rsync">
+            <table class="widefat post fixed" cellspacing="0">
+                <thead>
+                    <tr>
+                        <th class="manage-column column-title" style="" scope="col" width="10%">Name</th>
+                        <th class="manage-column column-author" style="" scope="col" width="20%">Comment</th>
+			<th class="manage-column column-author" style="" scope="col" width="20%">path</th>
+			<th class="manage-column column-author" style="" scope="col"></th>
+                        <th class="manage-column column-author" style="" scope="col"></th>
+                    </tr>
+	    	</thead>
+		<tbody>
+        		<{foreach key=sharename item=shareinfo from=$rsyncSection}>
+			<tr>
+				<td><{$sharename}></td>
+                                <td><{$shareinfo[$comm]}></td>
+                                <td><{$shareinfo[$pa]}></td>
+				<td>
+					<input class="button-secondary action doaction" type="submit" name = "<{$sharename}>" value="edit" />
+	    			</td>
+                                <td>
+					<input class="button-secondary action doaction" type="submit" name = "<{$sharename}>D" value="delete" onclick="document.getElementById('rsync').action='default'"/>
+	    			</td>
+			</tr>
+			<{/foreach}>
+		</tbody>
+            </table>
+        </form>
+        <form action="editrsync" method="post">
+        <p class="submit">
+            <input class="button-primary" type="submit" value="New Rsync" name="addRsync" />
+        </p>
+        </form>
+    </div>
+</div>

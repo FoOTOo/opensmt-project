@@ -1,0 +1,135 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+
+<div class="admin-panel-wrap">
+    <div class="icon32 icon-options-general">
+        <br/>
+    </div>
+    <h2>Edit/Add User Profile</h2>
+
+    <form action="user" method="post">
+        <table class="form-table">
+            <tbody>
+                <tr valign="top">
+                    <th scope="row">
+                        <label>Username:</label>
+                    </th>
+                    <td>
+                        <input class="regular-text" type="text"  name="username" id="username" value="<{$userEdited[0]}>"/>
+                    </td>
+                </tr>
+                <tr valign="top">
+                    <th scope="row">
+                        <label>User ID:</label>
+                    </th>
+                    <td>
+                        <input class="regular-text" type="text" name="userid" id="userid" value="<{$userEdited[1]}>"/>
+                    </td>
+                </tr>
+                <tr valign="top">
+                    <th scope="row">
+                        <label>Password:</label>
+                    </th>
+                    <td>
+                        <input class="regular-text" type="password" name="password" id="password" value="apassword"/>
+                    </td>
+                </tr>
+                <tr valign="top">
+                    <th scope="row">
+                        <label>Password Confirmation:</label>
+                    </th>
+                    <td>
+                        <input class="regular-text" type="password" name="passwordConfirm" id="passwordConfirm" value="apassword"/>
+                    </td>
+
+                </tr>
+                <tr valign="top">
+                    <th scope="row">
+                        <label>Primary Group:</label>
+                    </th>
+                    <td width='78%' class='vtable'>
+                        <select class='formselect' name='pGroup' id='pGroup' >
+                            <{foreach key=gname item=gid from=$groupInfo}>
+                                <{if $gid == $primaryGroupid }>
+                                    <option value="<{$gid}>" selected><{$gname}></option>
+                                <{elseif $gname == "other" and $useraddFlag}>
+                                    <option value="<{$gid}>" selected><{$gname}></option>
+                                <{else}>
+                                    <option value="<{$gid}>" ><{$gname}></option>
+                                <{/if}>
+                            <{/foreach}>
+                        </select>
+                </tr>
+                <tr valign="top">
+                    <th scope="row">
+                        <label>Comment:</label>
+                    </th>
+                    <td>
+                        <input class="regular-text" type="text" name="comment" id="comment" value="<{$userEdited[3]}>"/>
+                    </td>
+                </tr>
+                <tr valign="top">
+                    <th scope="row">
+                        <label>Home Directory:</label>
+                    </th>
+                    <td>
+                        <input class="regular-text" type="text" name="homedir" id="homedir" value="<{$userEdited[4]}>"/>
+                    </td>
+                </tr>
+                <tr valign="top">
+                    <th scope="row">
+                        <label>Default Shell:</label>
+                    </th>
+                    <td>
+                        <select name="defaultShell">
+                            <{if $userEdited[5] == '/bin/sh'}>
+                                <option value="/bin/sh" selected>sh</option>
+                            <{else}>
+                                <option value="/bin/sh" >sh</option>
+                            <{/if}>
+                            <{if $userEdited[5] == '/bin/bash' or $userEdited[5] == ''}>
+                                <option value="/bin/bash" selected>bash</option>
+                            <{else}>
+                                <option value="/bin/bash" >bash</option>
+                            <{/if}>
+                            <{if $userEdited[5] == '/bin/csh'}>
+                                <option value="/bin/csh" selected>csh</option>
+                            <{else}>
+                                <option value="/bin/csh" >csh</option>
+                            <{/if}>
+                            <{if $userEdited[5] == '24' }>
+                                <option value="/bin/ksh" selected>ksh</option>
+                            <{else}>
+                                <option value="/bin/ksh" >ksh</option>
+                            <{/if}>
+			</select>
+                    </td>
+                </tr>
+                <tr valign="top">
+                    <th scope="row">
+                        <label for="additionalgroup">Select Additional Group:</label>
+                    </th>
+                    <td width='78%' class='vtable'>
+                        <select multiple="multiple"  class='formselect' name='additionalgroup[]' id='additionalgroup' size='10' style="height: 150px">
+                            <{foreach key=gname item=gid from=$groupInfo}>
+                                <option value="<{$gid}>" ><{$gname}></option>
+                            <{/foreach}>
+                        </select>
+		<br/><span class='vexpl'>Set additional group memberships for this account.<br>Note: Ctrl-click (or command-click on the Mac) to select and deselect groups.</span>
+	
+                </tr>
+            </tbody>
+        </table>
+        <input class="regular-text" type="hidden" readonly name="originusername" id="originusername" value="<{$userEdited[0]}>"/>
+        <p class="submit">
+            <input class="button-primary" type="submit" value="Apply Changes" name="editUser"/>
+        </p>
+    </form>
+</div>
+<script type="text/javascript">
+    selElement = 'homedir';
+    selPath = document.getElementById('homedir').getAttribute("value")
+    if (selPath == '') selPath = '/'
+    $('homedir').addEvent('click',function(){
+        window.open("<{$webUrl}>/file/browser/dir/?dir="+selPath, 'strWindowName', 'strWindowFeatures');
+    })
+</script>

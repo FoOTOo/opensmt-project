@@ -1,0 +1,36 @@
+<div class="admin-panel-wrap">
+    <div class="icon32 icon-options-general">
+        <br/>
+    </div>
+    <{if $myArray}>
+    <div class="admin-panel-wrap">
+        <h2>zfs info</h2>
+        <form class="posts-filter" action="" method="get">
+            <table class="widefat post fixed" cellspacing="0">
+                <thead>
+                    <tr>
+                        <th class="manage-column column-title" style="" scope="col" width="25%">Name</th>
+			<th class="manage-column column-author" style="" scope="col">Used</th>
+			<th class="manage-column column-author" style="" scope="col">Avail</th>
+			<th class="manage-column column-author" style="" scope="col">Refer</th>
+			<th class="manage-column column-author" style="" scope="col">Mount Point</th>
+
+                    </tr>
+	    	</thead>
+		<tbody>
+        		<{foreach from=$myArray item=row}>
+			<tr>
+				<{foreach from=$row item=col}>
+				<td><{$col}></td>
+				<{/foreach}>
+			</tr>
+			<{/foreach}>
+		</tbody>
+            </table>
+        
+        </form>
+
+    </div>
+    <{else}>
+    <{/if}>
+</div>

@@ -1,0 +1,60 @@
+<div class="admin-panel-wrap">
+    <div class=" icon-link-manager icon32">
+        <br/>
+    </div>
+    <h2>Modules</h2>
+    <div class="metabox-holder poststuff">
+        <form method="post" action="post.php" onsubmit="return false;">
+            <div class="postbox">
+                        <div class="handlediv" title="显示/隐藏">
+                            <br/>
+                        </div>
+                        <h3 class="hndle">
+                            <span>Modules</span>
+                        </h3>
+                        <div class="inside">
+                            <div class="inside-body">
+                                <table cellpadding="0" cellspacing="0" border="0" width="100%">
+                                    <thead>
+                                        <tr>
+                                            <th align="left">Id</th>
+                                            <th align="left">Loadaddr</th>
+                                            <th align="left">Size</th>
+                                            <th align="left">Info</th>
+                                            <th align="left">Rev</th>
+                                            <th align="left">Module Name</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <{foreach from=$moduleList item=col}>
+                                        <tr>
+                                            <td>
+                                                <{$col.0}>
+                                            </td>
+                                            <td>
+                                                <{$col.1}>
+                                            </td>
+                                            <td>
+                                                <{$col.2}>
+                                            </td>
+                                            <td>
+                                                <{$col.3}>
+                                            </td>
+                                            <td>
+                                                <{$col.4}>
+                                            </td>
+                                            <td>
+                                                <{$col.5}>
+                                            </td>
+                                        </tr>
+                                        <{/foreach}>
+                                    </tbody>
+                                </table>
+                                
+                            </div>
+                        </div>
+                    </div>
+            <div class="clear"></div>
+        </form>
+    </div>
+</div>

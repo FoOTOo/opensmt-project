@@ -1,0 +1,107 @@
+<div class="admin-panel-wrap">
+    <div class="icon32 icon-options-general">
+        <br/>
+    </div>
+    <h2>zpool op</h2>
+    <{if $execMessage}>
+    <div id="execMessage" class="updated fade" style="background-color: rgb(255, 251, 204);">
+        <{section name=line loop=$execMessage}>
+        <p>
+            <strong><{$execMessage[line]}></strong>
+        </p>
+        <{/section}>
+    </div>
+    <{else}>
+    <{/if}>
+    <form action="" method="post">    
+        <table class="form-table">
+            <tbody>
+                <tr valign="top">
+                    <th scope="row">
+                        <label>pool name</label>
+                    </th>
+		    <td>
+			    <select name="poolName">
+				    <{foreach from=$zpoolName item = zpool}>
+				    <option value = "<{$zpool}>"><{$zpool}></option>
+				    <{/foreach}>
+			    </select>
+                    </td>
+                </tr>
+                <tr valign="top">
+                    <th scope="row">
+                        <label>op type</label>
+                    </th>
+                    <td>
+                        <select name="opType">
+				<option value='destroy'>destroy</option>
+				<option value='add'>add</option>
+				<option value='attach'>attach</option>
+				<option value='detach'>detach</option>
+				<option value='clear'>clear</option>
+				<option value='replace'>replace</option>
+                        </select>
+                    </td>
+                </tr>
+                <tr valign="top">
+                    <th scope="row">
+                        <label>vdevice type</label>
+                    </th>
+                    <td>
+                        <select name="vdeviceType">
+				<option value=' '>stripe(default)</option>
+				<option value='mirror'>mirror</option>
+				<option value='raidz'>raidz</option>
+                        </select>
+                    </td>
+                </tr>
+                <tr valign="top">
+                    <th scope="row">
+                        <label>Disks</label>
+                    </th>
+                    <td>
+			<select name="disk1">
+				<{foreach from=$diskName item=disk}>
+                            	<option value="<{$disk}>"><{$disk}></option>
+                            	<{/foreach}>
+			</select>
+                    </td>
+                </tr>
+		<tr valign="top">
+		    <th scope="row">
+		    </th>
+                    <td>
+			<select name="disk2">
+                                <option value=""></option>
+				<{foreach from=$diskName item=disk}>
+                            	<option value="<{$disk}>"><{$disk}></option>
+                            	<{/foreach}>
+			</select>
+                    </td>
+                </tr>
+		<tr valign="top">
+		    <th scope="row">
+		    </th>
+                    <td>
+			<select name="disk3">
+                                <option value=""></option>
+				<{foreach from=$diskName item=disk}>
+                            	<option value="<{$disk}>"><{$disk}></option>
+                            	<{/foreach}>
+			</select>
+                        <pre>
+If you want to destroy a zpool, choose the pool and ignore all of these disk choices.
+If you want to add a vdevice to a current pool, choose the vdevice type and the disks just like zpool create.
+If you want to attach to a vdevice, you can just choose the disk, and we will automatically attach it to the first disk of the the pool.
+If you want to replace a disk, choose the disk you want to be replaced in the first selection box and in the second choose the new disk.
+                        </pre>
+                    </td>
+                </tr>
+               
+            </tbody>
+        </table>
+        <p class="submit">
+            <input class="button-primary" type="submit" value="Do!" name="Submit"/>
+        </p>
+    </form>
+</div>

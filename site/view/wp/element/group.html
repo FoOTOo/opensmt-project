@@ -1,0 +1,46 @@
+<div class="admin-panel-wrap">
+    <div class="icon32 icon-options-general">
+        <br/>
+    </div>
+    <{if $groups}>
+    <div class="admin-panel-wrap">
+        <h2>Groups List</h2>
+        <form class="posts-filter" action="editgroup" method="post" id="group">
+            <table class="widefat post fixed" cellspacing="0">
+                <thead>
+                    <tr>
+                        <th class="manage-column column-title" style="" scope="col" width="10%">GID</th>
+			<th class="manage-column column-author" style="" scope="col">Group</th>
+                        <th class="manage-column column-author" style="" scope="col"></th>
+                        <th class="manage-column column-author" style="" scope="col"></th>
+                    </tr>
+	    	</thead>
+		<tbody>
+        		<{foreach key=gname item=gid from=$groups}>
+			<tr>
+
+				<td><{$gid}></td>
+                                <td><{$gname}></td>
+				
+				<td>
+					<input class="button-secondary action doaction" type="submit" name = "<{$gname}>" value="edit" />
+	    			</td>
+                                <td>
+					<input class="button-secondary action doaction" type="submit" name = "<{$gname}>D" value="delete" onclick="document.getElementById('group').action='group'"/>
+	    			</td>
+			</tr>
+			<{/foreach}>
+		</tbody>
+            </table>
+
+        </form>
+        <form action="editgroup" method="post">
+        <p class="submit">
+            <input class="button-primary" type="submit" value="Add New Group" name="add" />
+        </p>
+        </form>
+
+    </div>
+    <{else}>
+    <{/if}>
+</div>

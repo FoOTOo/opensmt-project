@@ -1,0 +1,127 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+
+        <link rel="stylesheet" href="<{$_baseUrl}>/Global.css" type="text/css" media="all" />
+        <link rel="stylesheet" href="<{$_baseUrl}>/Style.css" type="text/css" media="all" />
+
+        <link rel="stylesheet" href="<{$_baseUrl}>/Color.css" type="text/css" media="all" />
+        <link rel="stylesheet" href="<{$_baseUrl}>/Ui.css" type="text/css" media="all" />
+        <script type="text/javascript" src="<{$_baseUrl}>/mootools-1.2.4-core.js"></script>
+        <script type="text/javascript" src="<{$_baseUrl}>/mootools-1.2.4.1-more.js"></script>
+        <{if $authCheck==true}>
+
+        <{else}>
+            <link rel="stylesheet" href="<{$_baseUrl}>/Login.css" type="text/css" media="all" />
+        <{/if}>
+        <!--[if gte IE 6]>
+        <link rel="stylesheet" href="<{$_baseUrl}>/ie.css" type="text/css" media="all" />
+        <![endif]-->
+        <script type="text/javascript">
+            //<![CDATA[
+
+            window.addEvent('domready', function() {
+                var favorite_inside = $('favorite-inside');
+                var favorite_first = $('favorite-first');
+                
+                if(favorite_inside != null && favorite_first != null){
+                    favorite_inside.setStyle('display ', 'block');
+                    if (favorite_first.offsetWidth < favorite_inside.offsetWidth) {
+                        favorite_first.setStyle('width', favorite_inside.offsetWidth - 4 + 'px');
+                        favorite_inside.setStyle('width', favorite_first.offsetWidth - 4 + 'px');
+                    }
+                    favorite_inside.setStyle('display', 'none');
+                    favorite_inside.setStyle('width', favorite_first.offsetWidth - 4 + 'px');
+                }
+                $$('.handlediv').each(function(element) {
+                    element.addEvent('click', function() {
+                        var parent = this.parentNode;
+                        if (parent.get('class').trim() == 'postbox') {
+                            $(parent).addClass('closed')
+                        } else {
+                            $(parent).removeClass('closed');
+                        }
+                    });
+                });
+                $$('.menu-toggle').each(function(element) {
+                    element.addEvent('click', function() {
+                        var parent = this.parentNode;
+                        parent = $(parent);
+                        if(parent.get('id') =='menu-dashboard')
+                            return false;
+                        if (parent.hasClass('menu-open')) {
+                            parent.removeClass('menu-open');
+                        } else {
+                            parent.addClass('menu-open');
+                        }
+                    })
+                })
+                $$('.favorite-toggle').each(function(element) {
+                    element.addEvent('click', function() {
+                        var ffirst = $('favorite-first');
+                        var finside = $('favorite-inside');
+                        if (ffirst.get('class').trim() == 'favorite-first') {
+                            ffirst.addClass('slide-down');
+                            finside.removeClass('slideUp');
+                            finside.addClass('slideDown');
+                            finside.setStyle('display', 'block');
+
+                        } else {
+                            ffirst.removeClass('slide-down');
+                            finside.removeClass('slideDown');
+                            finside.addClass('slideUp');
+                            finside.setStyle('display', 'none');
+                        }
+                    })
+                })
+                $$('.show-settings').each(function(element) {
+                    element.addEvent('click', function() {
+                        if (this.get('class').trim() == 'show-settings') {
+                            $(this.get('id') + '-wrap').setStyle('display', 'block');
+                            $$('.show-settings').removeClass('open');
+                            $$('.screen-meta-toggle').addClass('invisible');
+                            this.removeClass('invisible').addClass('open');
+                            this.parentNode.removeClass('invisible')
+
+                        } else {
+                            $$('.screen-meta-panel').setStyle('display', 'none');
+                            $$('.show-settings').removeClass('open');
+                            $$('.screen-meta-toggle').removeClass('invisible');
+                        }
+                    })
+                })
+                //editor =  $('iframeName在在').contentWindow;
+
+
+                //editor.document.open();
+                //editor.document.writeln('<html><body onclick="alert(window);"></body></html>');
+                // editor.document.close();
+                //editor.document.designMode="On";
+                // editor.document.contentEditable =true;
+                //  editor.document.body.name = "alert('a')"
+                //var editor = new Editor();
+            })
+            //]]>
+
+        </script>
+        
+
+        <title>manage <{foreach from=$pageTitle item=item}> &rsaquo; <{$item}><{/foreach}></title>
+    </head>
+    <body>
+        <div class="wrap">
+            <div class="innerwrap">
+                <{include file="snippet/header.html"}>
+                <{if $authCheck==true}>
+                    <{include file="snippet/content.html"}>
+                <{else}>
+                    <{include file="snippet/login.html"}>
+                <{/if}>
+                
+                <{include file="snippet/otherElement.html"}>
+                <{include file="snippet/footer.html"}>
+            </div>
+        </div>
+    </body>
+</html>

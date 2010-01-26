@@ -1,0 +1,9 @@
+# motd file = ....
+# message of the day file
+
+# port =  
+
+    max connections = 5
+log file = /var/log/rsyncd.log
+pid file = /var/run/rsyncd.pid
+    syslog facility = local5

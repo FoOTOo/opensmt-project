@@ -1,0 +1,72 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+        <title>异常发生</title>
+        <style type="text/css">
+            * {
+                padding: 0px;
+                margin: 0px;
+            }
+            body {
+                font-size: 12px;
+                padding: 15px;
+            }
+            table {
+                width: 100%;
+            }
+        </style>
+    </head>
+    <?php
+    
+    ?>
+    <body>
+        <p><?php echo $this->getMessage();?></p>
+        <p>发生在：<?php echo $this->getFile();?>　行数为：<?php echo $this->getLine();?> 错误代码：<?php echo $this->getCode();?></p>
+        <table>
+            <thead>
+                <tr>
+                    <th colspan="5" style="text-align: left;">堆栈信息：</th>
+                </tr>
+                <tr>
+                    <td width="5%">#</td>
+                    <td width="35%">函数</td>
+                    <td width="55%">文件</td>
+                    <td width="5%">行数</td>
+                </tr>
+            </thead>
+            <?php
+           
+            $trace = $this->getTrace();
+            if(is_array($trace)){
+            $index = count($trace);
+            while(!empty($trace)){
+            $out = array_pop($trace);           
+            ?>
+            <tbody>
+                <tr>
+                    <td><?php echo $index;?></td>
+                    <td><?php if(!empty($out['class']))echo $out['class'];?><?php if(!empty($out['type']))echo $out['type'];?><?php if(!empty($out['function']))echo $out['function'];?>()</td>
+                    <td><?php if(!empty($out['file']))echo $out['file'];?></td>
+                    <td><?php if(!empty($out['line']))echo $out['line'];?></td>
+                </tr>
+            </tbody>
+            <?php
+            $index--;
+            }
+            }
+            ?>
+
+
+            <tbody>
+                <tr>
+                    <td colspan="5">
+                        <p>参考数据：</p>
+                        <pre><?php echo print_r($resouce,true);?></pre>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </body>
+</html>
+<?php die();?>

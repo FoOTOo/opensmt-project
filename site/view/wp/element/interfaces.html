@@ -1,0 +1,82 @@
+<div class="admin-panel-wrap">
+    <div class="icon32 icon-options-general">
+        <br/>
+    </div>
+    <h2>interfaces</h2>
+    <div class="updated fade" style="background-color: rgb(255, 251, 204);display: none;">
+        <p>
+            <strong>设置已保存。</strong>
+        </p>
+    </div>
+    <{foreach from=$interfaces item=col}>
+    <table class="form-table">
+        <tbody>
+            <tr valign="top">
+                <th scope="row">
+                    <label>name</label>
+                </th>
+                <td>
+                    <{$col.name}>
+                </td>
+            </tr>
+            <tr valign="top">
+                <th scope="row">
+                    <label>status</label>
+                </th>
+                <td>
+					<{$col.status}>
+                </td>
+            </tr>
+            <tr valign="top">
+                <th scope="row">
+                    <label>mtu</label>
+                </th>
+                <td>
+                    <{$col.mtu}>
+                </td>
+            </tr>
+            <tr valign="top">
+                <th scope="row">
+                    <label>index</label>
+                </th>
+                <td>
+                    <{$col.index}>
+                </td>
+            </tr>
+            <tr valign="top">
+                <th scope="row">
+                    <label>inet</label>
+                </th>
+                <td>
+                    <{$col.inet}>
+                </td>
+            </tr>
+            <tr valign="top">
+                <th scope="row">
+                    <label>netmask</label>
+                </th>
+                <td>
+                    <{$col.netmask}>
+                </td>
+            </tr>
+            <tr valign="top">
+                <th scope="row">
+                    <label>broadcast</label>
+                </th>
+                <td>
+                    <{$col.broadcast}>
+                </td>
+            </tr>
+            <tr valign="top">
+                <th scope="row">
+                    <label>ether</label>
+                </th>
+                <td>
+                    <{$col.ether}>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <hr/>
+    <{/foreach}>
+</div>

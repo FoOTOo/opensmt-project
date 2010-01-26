@@ -1,0 +1,139 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<div class="admin-panel-wrap">
+    <div class="icon32 icon-options-general">
+        <br/>
+    </div>
+    <h2>Edit/Add Rsync Modules </h2>
+
+    <form action="default" method="post">
+        <table class="form-table">
+            <tbody>
+                <tr valign="top">
+                    <th scope="row">
+                        <label>Name:</label>
+                    </th>
+                    <td>
+                        <{if $addFlag}>
+                            <input class="regular-text" type="text" name="name" id="name" value=""/>
+                        <{else}>
+                            <input class="regular-text" type="text" readonly="" name="name" id="name" value="<{$targetName}>"/>
+                        <{/if}>
+                    </td>
+                </tr>
+                <tr valign="top">
+                    <th scope="row">
+                        <label>Comment:</label>
+                    </th>
+                    <td>
+                        <input class="regular-text" type="text" name="comment" id="comment" value="<{$comment}>"/>
+                    </td>
+                </tr>
+                <tr valign="top">
+                    <th scope="row">
+                        <label>Path:</label>
+                    </th>
+                    <td>
+                        <input class="regular-text" type="text" name="path" id="path" value="<{$path}>"/>
+                    </td>
+                </tr>
+                <tr valign="top">
+                    <th scope="row">
+                        <label>Use Chroot:</label>
+                    </th>
+		    <td>
+                        <{if $chroot == 'yes' }>
+			    <input type = "checkbox" name = "chroot" checked> Checked for using chroot <p>
+                        <{elseif $addFlag}>
+                            <input type = "checkbox" name = "chroot" checked> Checked for using chroot <p>
+                        <{else}>
+                            <input type = "checkbox" name = "chroot" checked> Checked for using chroot <p>
+                        <{/if}>
+                    </td>
+                </tr>
+                <tr valign="top">
+                    <th scope="row">
+                        <label>Listed in Available Modules:</label>
+                    </th>
+		    <td>
+                        <{if $list == 'true' }>
+			    <input type = "checkbox" name = "list" checked> Checked for listed <p>
+                        <{elseif $addFlag}>
+                            <input type = "checkbox" name = "list" checked> Checked for listed <p>
+                        <{else}>
+                            <input type = "checkbox" name = "list" > Checked for listed <p>
+                        <{/if}>
+                    </td>
+                </tr>
+                <tr valign="top">
+                    <th scope="row">
+                        <label>Read Only:</label>
+                    </th>
+		    <td>
+                        <{if $readonly == 'true' }>
+			    <input type = "checkbox" name = "readonly" checked> Checked for read only <p>
+                        <{else}>
+                            <input type = "checkbox" name = "readonly" > Checked for read only <p>
+                        <{/if}>
+                    </td>
+                </tr>
+                <tr valign="top">
+                    <th scope="row">
+                        <label>Write Only:</label>
+                    </th>
+		    <td>
+                        <{if $writeonly == 'true' }>
+			    <input type = "checkbox" name = "writeonly" checked> Checked for write only <p>
+                        <{else}>
+                            <input type = "checkbox" name = "writeonly" > Checked for write only <p>
+                        <{/if}>
+                    </td>
+                </tr>
+                <tr valign="top">
+                    <th scope="row">
+                        <label>UID:</label>
+                    </th>
+                    <td width='78%' class='vtable'>
+                        <select class='formselect' name='uid' id='uid' >
+                            <{foreach item=username from=$usernames}>
+                                <{if $username == $uid }>
+                                    <option value="<{$username}>" selected><{$username}></option>
+                                <{elseif $username == "nobody" and $addFlag}>
+                                    <option value="<{$username}>" selected><{$username}></option>
+                                <{else}>
+                                    <option value="<{$username}>" ><{$username}></option>
+                                <{/if}>
+                            <{/foreach}>
+                        </select>
+                </tr>
+                <tr valign="top">
+                    <th scope="row">
+                        <label>GID:</label>
+                    </th>
+                    <td width='78%' class='vtable'>
+                        <select class='formselect' name='gid' id='gid' >
+                            <{foreach item=groupname from=$groups}>
+                                <{if $groupname == $gid }>
+                                    <option value="<{$groupname}>" selected><{$groupname}></option>
+                                <{elseif $groupname == "nobody" and $addFlag}>
+                                    <option value="<{$groupname}>" selected><{$groupname}></option>
+                                <{else}>
+                                    <option value="<{$groupname}>" ><{$groupname}></option>
+                                <{/if}>
+                            <{/foreach}>
+                        </select>
+                </tr>
+            </tbody>
+        </table>
+        <p class="submit">
+            <input class="button-primary" type="submit" value="Apply Changes" name="editRsync"/>
+        </p>
+    </form>
+</div>
+<script type="text/javascript">
+    selElement = 'path';
+    selPath = document.getElementById('path').getAttribute("value")
+    if (selPath == '') selPath = '/'
+    $('path').addEvent('click',function(){
+        window.open("<{$webUrl}>/file/browser/dir/?dir="+selPath, 'strWindowName', 'strWindowFeatures');
+    })
+</script>

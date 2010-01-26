@@ -1,0 +1,121 @@
+<div class="admin-panel-wrap">
+    <div class="icon32 icon-options-general">
+        <br/>
+    </div>
+    <div class="admin-panel-wrap">
+    <h2>Services | CIFS/SMB | Settings </h2>
+    <{if $execMessage}>
+    <div id="execMessage" class="updated fade" style="background-color: rgb(255, 251, 204);">
+        <{section name=line loop=$execMessage}>
+        <p>
+            <strong><{$execMessage[line]}></strong>
+        </p>
+        <{/section}>
+    </div>
+    <{else}>
+    <{/if}>
+    <form class="posts-filter" action="" method="post">
+        <table class="form-table">
+            <tbody>
+ 		<tr valign = "top">
+		    <th scope = "row">
+			<label>NetBIOS name</label>
+		    </th>
+		    <td>
+                        <input class = 'regular-text' type = 'text' name = "netbios" value = "<{$originNetbios}>">
+		    </td>
+	    	</tr>
+                <tr valign = "top">
+		    <th scope = "row">
+			<label>Workgroup</label>
+		    </th>
+		    <td>
+                        <input class = 'regular-text' type = 'text' name = "workgroup" value = "<{$originWorkgroup}>"><br>
+		    </td>
+	    	</tr>
+ 		<tr valign="top">
+                    <th scope="row">
+                        <label>Security</label>
+                    </th>
+		    <td>
+			<select name = "security">
+			    <option value = 'user'>user</option>
+			    <option value = 'share'>share</option>
+			</select>
+                    </td>
+                </tr>
+
+                <tr valign = "top">
+		    <th scope = "row">
+		        <label>Unix charset</label>
+		    </th>
+		    <td>
+			    <select name = "unixCharset">
+                                <{foreach item=ucs from=$unixcharset}>
+                                <{if $ucs == $originUnixcharset}>
+                                <option value="<{$ucs}>" selected><{$ucs}></option>
+                                <{else}>
+                                <option value="<{$ucs}>"><{$ucs}></option>
+                                <{/if}>
+                                <{/foreach}>
+      			    </select>
+		    </td>
+	    	</tr>
+
+                <tr valign = "top">
+		    <th scope = "row">
+		        <label>Dos charset</label>
+		    </th>
+		    <td>
+			    <select name = "dosCharset">
+                                <{foreach item=dcs from=$doscharset}>
+                                <{if $ucs == $originDoscharset}>
+                                <option value="<{$dcs}>" selected><{$dcs}></option>
+                                <{else}>
+                                <option value="<{$dcs}>"><{$dcs}></option>
+                                <{/if}>
+                                <{/foreach}>
+      			    </select>
+		    </td>
+	    	</tr>
+                
+                <tr valign = "top">
+		    <th scope = "row">
+		        <label>Display charset</label>
+		    </th>
+		    <td>
+			    <select name = "displayCharset">
+                                <{foreach item=discs from=$displaycharset}>
+                                <{if $ucs == $originDisplaycharset}>
+                                <option value="<{$discs}>" selected><{$discs}></option>
+                                <{else}>
+                                <option value="<{$discs}>"><{$discs}></option>
+                                <{/if}>
+                                <{/foreach}>
+      			    </select>
+		    </td>
+	    	</tr>
+                
+                <tr valign = "top">
+		    <th scope = "row">
+			<label>Guest account</label>
+		    </th>
+		    <td>
+                        <input class = 'regular-text' type = 'text' name = "guestAccount" value = "<{$originGuestaccount}>">
+		    </td>
+	    	</tr>
+            </tbody>
+        </table>
+        <input class="regular-text" type="hidden" readonly="" name="originNetbios" id="originNetbios" value="<{$originNetbios}>"/>
+        <input class="regular-text" type="hidden" readonly="" name="originWorkgroup" id="originWorkgroup" value="<{$originWorkgroup}>"/>
+        <input class="regular-text" type="hidden" readonly="" name="originSecurity" id="originSecurity" value="<{$originSecurity}>"/>
+        <input class="regular-text" type="hidden" readonly="" name="originUnixcharset" id="originUnixcharset" value="<{$originUnixcharset}>"/>
+        <input class="regular-text" type="hidden" readonly="" name="originDoscharset" id="originDoscharset" value="<{$originDoscharset}>"/>
+        <input class="regular-text" type="hidden" readonly="" name="originDisplaycharset" id="originDisplaycharset" value="<{$originDisplaycharset}>"/>
+        <input class="regular-text" type="hidden" readonly="" name="originGuestaccount" id="originGuestaccount" value="<{$originGuestaccount}>"/>
+        <p class="submit">
+            <input class="button-primary" type="submit" value="Save and Restart!" name="Submit"/>
+        </p>
+    </form>
+    </div>
+</div>
