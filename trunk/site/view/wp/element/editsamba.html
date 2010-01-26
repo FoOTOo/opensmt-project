@@ -1,0 +1,97 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<div class="admin-panel-wrap">
+    <div class="icon32 icon-options-general">
+        <br/>
+    </div>
+    <h2>Edit/Add Samba Share Directory </h2>
+
+    <form action="samba" method="post">
+        <table class="form-table">
+            <tbody>
+                <tr valign="top">
+                    <th scope="row">
+                        <label>Name:</label>
+                    </th>
+                    <td>
+                        <input class="regular-text" type="text" name="name" id="name" value="<{$targetName}>"/>
+                    </td>
+                </tr>
+                <tr valign="top">
+                    <th scope="row">
+                        <label>Comment:</label>
+                    </th>
+                    <td>
+                        <input class="regular-text" type="text" name="comment" id="comment" value="<{$targetConf[$comment]}>"/>
+                    </td>
+                </tr>
+                <tr valign="top">
+                    <th scope="row">
+                        <label>Path:</label>
+                    </th>
+                    <td>
+                        <input class="regular-text" type="text" name="path" id="path" value="<{$targetConf[$path]}>"/>
+                    </td>
+                </tr>
+                <tr valign="top">
+                    <th scope="row">
+                        <label>Read Only:</label>
+                    </th>
+		    <td>
+                        <{if $targetConf[$readonly] == 'yes' }>
+			    <input type = "checkbox" name = "readonly" checked> Set Read Only <p>
+                        <{else}>
+                            <input type = "checkbox" name = "readonly" > Set Read Only <p>
+                        <{/if}>
+                    </td>
+                </tr>
+                <tr valign="top">
+                    <th scope="row">
+                        <label>Browseable:</label>
+                    </th>
+		    <td>
+                        <{if $targetConf[$browseable] == 'yes' }>
+			    <input type = "checkbox" name = "browseable" checked> Set Browseable <p>
+                        <{else}>
+                            <input type = "checkbox" name = "browseable" > Set Browseable <p>
+                        <{/if}>
+                    </td>
+                </tr>
+                <tr valign="top">
+                    <th scope="row">
+                        <label>Public:</label>
+                    </th>
+		    <td>
+                        <{if $targetConf[$public] == 'yes' }>
+			    <input type = "checkbox" name = "public" checked> Set Public <p>
+                        <{else}>
+                            <input type = "checkbox" name = "public" > Set Public <p>
+                        <{/if}>
+                    </td>
+                </tr>
+                <tr valign="top">
+                    <th scope="row">
+                        <label>Guest Access:</label>
+                    </th>
+		    <td>
+                        <{if $targetConf[$guestok] == 'yes' }>
+			    <input type = "checkbox" name = "guestok" checked> Set Guest OK <p>
+                        <{else}>
+                            <input type = "checkbox" name = "guestok" > Set Guest OK <p>
+                        <{/if}>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <p class="submit">
+            <input class="button-primary" type="submit" value="Apply Changes" name="editSamba"/>
+        </p>
+    </form>
+</div>
+<script type="text/javascript">
+    selElement = 'path';
+    selPath = document.getElementById('path').getAttribute("value")
+    if (selPath == '') selPath = '/'
+    $('path').addEvent('click',function(){
+        window.open("<{$webUrl}>/file/browser/dir/?dir="+selPath, 'strWindowName', 'strWindowFeatures');
+    })
+</script>

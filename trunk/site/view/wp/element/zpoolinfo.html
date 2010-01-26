@@ -1,0 +1,111 @@
+<div class="admin-panel-wrap">
+    <div class="icon32 icon-options-general">
+        <br/>
+    </div>
+    <h2>zpool info</h2>
+    <div class="admin-panel-wrap">
+        <div class="updated fade" style="background-color: rgb(255, 251, 204);">
+            <p>The launch of scrubbing may take a few seconds, please wait...</p>
+        </div>
+        <{if $myArray}>
+
+
+        <form class="posts-filter" action="" method="post">
+            <table class="widefat post fixed" cellspacing="0">
+                <thead>
+                    <tr>
+                        <th class="manage-column column-title" style="" scope="col" width="10%">Name</th>
+                        <th class="manage-column column-author" style="" scope="col">Size</th>
+                        <th class="manage-column column-author" style="" scope="col">Used</th>
+                        <th class="manage-column column-author" style="" scope="col">Avail</th>
+                        <th class="manage-column column-author" style="" scope="col">Cap</th>
+                        <th class="manage-column column-author" style="" scope="col">Health</th>
+                        <th class="manage-column column-author" style="" scope="col">ALTROOT</th>
+                        <th class="manage-column column-author" style="" scope="col"></th>
+                        <th class="manage-column column-author" style="" scope="col"></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <{foreach from=$myArray key=k item=row}>
+                    <tr>
+                        <{foreach from=$row item=col}>
+                        <td><{$col}></td>
+                        <{/foreach}>
+                        <td>
+                            <input class="button-secondary action doaction" type="submit" name = "<{$row[0]}>" value="Status" />
+                        </td>
+                        <td>
+                            <{if $scrubfinish[$k]}>
+                            <input class="button-secondary action deaction" type="submit" name="<{$row[0]}>S" value="Scrub" />
+                            <{else}>
+                            <input class="button-secondary action deaction" type="submit" name="<{$row[0]}>S" value="Stop Scrub" />
+                            <{/if}>
+                        </td>
+                    </tr>
+                    <{/foreach}>
+                </tbody>
+            </table>
+
+        </form>
+
+
+        <{else}>
+        <{/if}>
+        <br/>
+
+        <{if $execMessage}>
+        <div class="metabox-holder poststuff">
+            <form method="post" action="post.php" onsubmit="return false;">
+                <div class="postbox">
+                    <div class="handlediv" title="显示/隐藏">
+                        <br/>
+                    </div>
+                    <h3 class="hndle">
+                        <span>Status</span>
+                    </h3>
+                    <div class="inside">
+                        <div class="inside-body">
+                            <pre id="execMessage"><{$execMessage}></pre>
+                        </div>
+                    </div>
+                </div>
+                <div class="clear"></div>
+            </form>
+        </div>
+        <{else}>
+        <{/if}>
+        <{if $scrubMessage}>
+        <div class="metabox-holder poststuff">
+            <form method="post" action="post.php" onsubmit="return false;">
+                <div class="postbox">
+                    <div class="handlediv" title="显示/隐藏">
+                        <br/>
+                    </div>
+                    <h3 class="hndle">
+                        <span>Status</span>
+                    </h3>
+                    <div class="inside">
+                        <div class="inside-body">
+                            <pre id="scrubMessage"><{$scrubMessage}></pre>
+                        </div>
+                    </div>
+                </div>
+                <div class="clear"></div>
+            </form>
+        </div>
+        <{else}>
+        <{/if}>
+    </div>
+</div>
+
+<script type="text/javascript">
+    function processload() {
+        var myHTMLRequest = new Request.HTML({
+            onComplete: function(responseTree, responseElements, responseHTML, responseJavaScript){
+                $('scrubMessage').set('html',responseHTML);
+            }
+        }).get('<{$webUrl}>/disk/zpool/default/type/ajax');
+}
+processload.periodical(2000);
+
+</script>

@@ -1,0 +1,595 @@
+html {
+    background-color: #f9f9f9;
+}
+body, #wrap, .wrap, .form-table .pre {
+    color: #333333;
+}
+a:active, a:focus {
+    color: #D54E21;
+}
+.ac_match, .subsubsub a.current {
+    color: #000000;
+}
+select {
+    background-color: #FFFFFF;
+    border-color: #DDDDDD;
+}
+.button:hover, .button-secondary:hover, .submit input:hover, input[type="button"]:hover, input[type="submit"]:hover {
+    border-color: #666666;
+    color: #000000;
+}
+.updated, .login #login_error, .login .message {
+    background-color: #FFFFE0;
+    border-color: #E6DB55;
+}
+.head {
+    background-color: #464646;
+}
+.innerhead .head-logo {
+    background: transparent url(./images/wp-logo.gif) no-repeat scroll center center;
+}
+.innerhead a {
+    text-decoration: none;
+}
+.innerhead h1 a {
+    color: #FFFFFF;
+}
+.innerhead h1 a:hover {
+    text-decoration: underline;
+}
+.innerhead .user_info {
+    color: #999999;
+}
+.user_info a:link, .user_info a:visited {
+    color: #CCCCCC;
+    
+    text-decoration: none;
+}
+.user_info a:hover {
+    color: #FFFFFF;
+
+    text-decoration: underline !important;
+}
+.favorite-actions .slide-down {
+    border-bottom-color: #626262;
+    background-image: url(./images/fav-top.png);
+    background-repeat: repeat-x;
+    background-position: 0 top;
+}
+.favorite-first {
+    background: #797979 url(./images/fav.png) repeat-x left center;
+    border-color: #777 !important;
+    border-bottom-color: #666 !important;
+}
+.favorite-inside{
+    border-color: #797979;
+    background-color: #797979;
+}
+.favorite-actions a {
+    text-decoration: none;
+    color: #DDDDDD;
+}
+.favorite-actions a:hover {
+    color: #ffffff;
+}
+.favorite-toggle{
+    background: transparent url(./images/fav-arrow.gif) no-repeat 0 -4px;
+}
+
+.adminmenu * {
+    border-color: #E3E3E3;
+}
+.adminmenu a, a {
+    color: #21759B;
+}
+.adminmenu a {
+    text-decoration: none;
+}
+.adminmenu a, .poststuff .edButtonPreview,
+.poststuff .edButtonHTML,
+.the-comment-list p.comment-author strong a,
+.media-upload a.del-link,
+.media-upload a.delete,
+.ui-tabs-nav a,
+a {
+color:#21759B;
+}
+a:hover, .adminmenu a:hover, .adminmenu ul.submenu a:hover,
+.the-comment-list .comment a:hover,
+.rightnow a:hover,
+.subsubsub a:hover, .subsubsub a.current:hover, 
+.login form .submit input:hover,
+div.dashboard-widget-submit input:hover,
+.media-upload a.del-link:hover,
+.ui-tabs-nav a:hover {
+color:#D54E21;
+}
+.adminmenu a {
+
+    background:#FFFFFF url(./images/menu-bits.gif) no-repeat scroll 0 -310px;
+}
+.adminmenu a:hover,.adminmenu a:hover {
+    color: #D54E21;
+}
+.adminmenu li.menu-separator {
+    background: transparent url(./images/menu-arrows.gif) no-repeat scroll left 5px;
+}
+.adminmenu .has-submenu:hover .menu-toggle,
+.adminmenu .menu-open .menu-toggle {
+    background: transparent url(./images/menu-bits.gif) no-repeat scroll left -109px;
+}
+.adminmenu li.has-current-submenu.menu-open .menu-toggle,
+.adminmenu li.has-current-submenu:hover .menu-toggle {
+    -moz-background-clip: border;
+    -moz-background-inline-policy: continuous;
+    -moz-background-origin: padding;
+    background: transparent url(./images/menu-bits.gif) no-repeat scroll left -207px;
+}
+.adminmenu li.has-current-submenu a.has-current-submenu,
+.adminmenu .menu-top .current {
+    -moz-background-clip: border;
+    -moz-background-inline-policy: continuous;
+    -moz-background-origin: padding;
+    background: #6D6D6D url(./images/menu-bits.gif) repeat-x scroll left top;
+    border-color: #6D6D6D;
+    color: #FFFFFF;
+    text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.4);
+}
+.adminmenu a.menu-top {
+    -moz-background-clip: border;
+    -moz-background-inline-policy: continuous;
+    -moz-background-origin: padding;
+    background: #F1F1F1 url(./images/menu-bits.gif) repeat-x scroll left -379px;
+}
+.adminmenu div.menu-image{
+    -moz-background-clip: border;
+    -moz-background-inline-policy: continuous;
+    -moz-background-origin: padding;
+    background: transparent url(./images/menu.png) no-repeat scroll -1px -33px;
+}
+.adminmenu li:hover div.menu-image,
+.adminmenu li.has-current-submenu div.menu-image,
+.adminmenu li.current div.menu-image {
+    background: transparent url(./images/menu.png) no-repeat scroll -1px -1px;
+}
+.adminmenu li.has-current-submenu ul {
+    border-bottom-color: #AAAAAA;
+}
+.adminmenu .submenu ul {
+    background-color: #FFFFFF;
+}
+.adminmenu li.has-current-submenu .submenu,
+.adminmenu li.has-current-submenu ul li a {
+    border-color: #AAAAAA !important;
+}
+.adminmenu .has-current-submenu .submenu .submenu-head {
+    background-color: #EAEAEA;
+    border-color: #AAAAAA;
+}
+.adminmenu .submenu ul {
+    background-color: #fff;
+}
+.adminmenu div.submenu {
+    background-color: transparent;
+}
+.adminmenu li.has-current-submenu a.has-current-submenu,
+.adminmenu .menu-top .current {
+    -moz-background-clip: border;
+    -moz-background-inline-policy: continuous;
+    -moz-background-origin: padding;
+    background: #6D6D6D url(./images/menu-bits.gif) repeat-x scroll left top;
+    border-color: #6D6D6D;
+    color: #FFFFFF;
+    text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.4);
+}
+.adminmenu li.has-current-submenu ul li a {
+    -moz-background-clip: border !important;
+    -moz-background-inline-policy: continuous !important;
+    -moz-background-origin: padding !important;
+    background: transparent url(./images/menu-dark.gif) no-repeat scroll left bottom !important;
+}
+.adminmenu li.menu-top .current:hover {
+    border-color: #B5B5B5;
+}
+.adminmenu .submenu .current a.current {
+    -moz-background-clip: border;
+    -moz-background-inline-policy: continuous;
+    -moz-background-origin: padding;
+    background: transparent url(./images/menu-bits.gif) no-repeat scroll 0 -289px;
+}
+.adminmenu .submenu a:hover {
+    background-color: #EAF2FA !important;
+    color: #333333 !important;
+}
+.adminmenu .has-current-submenu ul li a.current {
+    -moz-background-clip: border !important;
+    -moz-background-inline-policy: continuous !important;
+    -moz-background-origin: padding !important;
+    background: transparent url(./images/menu-dark.gif) no-repeat scroll left top !important;
+}
+.adminmenu .submenu li.current,
+.adminmenu .submenu li.current a ,
+.adminmenu .submenu li.current a:hover{
+    color: #333;
+    background-color: #f5f5f5;
+    background-image: none;
+    border-color: #e3e3e3;
+    text-shadow: rgba(255,255,255,1) 0px 1px 0px;    
+}
+#screen-meta a.show-settings {
+    background-color: transparent;
+    text-shadow: 0 1px 0 rgba(255, 255, 255, 0.7);
+}
+.screen-meta a.show-settings {
+    background-image: url(./images/screen-options-right.gif);
+}
+.screen-meta a.show-settings.open{
+    background-image: url(images/screen-options-right-up.gif);
+}
+#screen-meta-links a.show-settings {
+    color: #606060;
+}
+.screen-meta-panel {
+    background-color: #F1F1F1;
+    border-color: #DFDFDF;
+}
+.update-nag, .plugin-update {
+    background-color: #FFFEEB;
+    border-bottom-color: #CCCCCC;
+    border-top-color: #CCCCCC;
+    color: #555555;
+}
+.update-nag a, .plugin-update a {
+    font-size: 1.1em;
+}
+.admin-panel-wrap .icon32{
+    -moz-background-clip: border;
+    -moz-background-inline-policy: continuous;
+    -moz-background-origin: padding;
+    background: transparent url(./images/icons32.png) no-repeat scroll -492px -5px;
+}
+.admin-panel-wrap {
+    color: #333333;
+}
+.admin-panel-wrap h2 {
+    color: #464646;
+}
+.form-table th,
+.form-wrap label {
+    color: #222222;
+    text-shadow: 0 1px 0 #FFFFFF;
+}
+.form-table input,
+.form-table textarea,
+.search-input,
+.form-field input,
+.form-field textarea,
+.submit {
+    border-color: #DFDFDF;
+}
+.setting-description,
+.form-wrap p {
+    color: #666666;
+}
+.form-table input, .form-table textarea, .search-input, .form-field input, .form-field textarea, .submit {
+    border-color: #DFDFDF;
+}
+.button-primary, .submit .button-primary, #login form .submit input {
+    -moz-background-clip: border;
+    -moz-background-inline-policy: continuous;
+    -moz-background-origin : padding;
+    background: #21759B url(./images/button-grad.png) repeat-x scroll left top;
+    border-color: #298CBA !important;
+    color: #FFFFFF !important;
+    font-weight: bold;
+}
+
+.button, .submit input, .button-secondary {
+    -moz-background-clip: border;
+    -moz-background-inline-policy: continuous;
+    -moz-background-origin: padding;
+    background: #F2F2F2 url(./images/white-grad.png) repeat-x scroll left top;
+}
+.button, .button-secondary, .submit input, input[type="button"], input[type="submit"] {
+    border-color: #BBBBBB;
+    color: #464646;
+}
+.submit input, .button, .button-primary, .button-secondary, .button-highlighted, #postcustomstuff .submit input {
+    text-shadow:0 1px 0 #FFFFFF;
+}
+.button-primary, .submit .button-primary {
+    text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.3);
+}
+.button-primary:hover,
+#login form .submit input:hover {
+	border-color: #13455b !important;
+	color: #EAF2FA !important;
+}
+
+.howto, .nonessential, .edit-slug-box,
+.form-input-tip, .rss-widget span.rss-date, .subsubsub {
+    color: #666666;
+}
+.view-switch .view-switch-list {
+    -moz-background-clip: border;
+    -moz-background-inline-policy: continuous;
+    -moz-background-origin: padding;
+    background: transparent url(./images/list.png) no-repeat scroll 0 0;
+    display: block;
+    width: 20px;
+    height: 20px;
+    float: left;
+    margin-right: 5px;
+}
+.view-switch .view-switch-list.current {
+    -moz-background-clip: border;
+    -moz-background-inline-policy: continuous;
+    -moz-background-origin: padding;
+    background: transparent url(./images/list.png) no-repeat scroll -40px 0;
+}
+.view-switch .view-switch-excerpt {
+    -moz-background-clip: border;
+    -moz-background-inline-policy: continuous;
+    -moz-background-origin: padding;
+    background: transparent url(./images/list.png) no-repeat scroll -20px 0;
+    float: left;
+    display: block;
+    width: 20px;
+    height: 20px;
+}
+.view-switch .view-switch-excerpt.current {
+    -moz-background-clip: border;
+    -moz-background-inline-policy: continuous;
+    -moz-background-origin: padding;
+    background: transparent url(./images/list.png) no-repeat scroll -60px 0;
+}
+.widefat {
+    background-color: #FFFFFF;
+    border-color: #DFDFDF;
+}
+.widefat td, .widefat th {
+    border-color: #DFDFDF;
+}
+.widefat th {
+    text-shadow: 0 1px 0 rgba(255, 255, 255, 0.8);
+}
+.widefat thead tr th,
+.widefat tfoot tr th,
+h3.dashboard-widget-title,
+h3.dashboard-widget-title span,
+h3.dashboard-widget-title small,
+.find-box-head {
+    -moz-background-clip: border;
+    -moz-background-inline-policy: continuous;
+    -moz-background-origin: padding;
+    background: #DFDFDF url(./images/gray-grad.png) repeat-x scroll left top;
+    color: #333333;
+}
+.post-com-count {
+    background-image: url(./images/bubble_bg.gif);
+    color: #FFFFFF;
+}
+.post-com-count span {
+    background-color: #BBBBBB;
+}
+
+.inside-footer{
+    -moz-background-clip: border;
+    -moz-background-inline-policy: continuous;
+    -moz-background-origin: padding;
+    background: #EAF2FA none repeat scroll 0 0;
+}
+.postbox {
+    background-color: #FFFFFF;
+}
+.postbox, .postarea, .postbox input[type="text"], .postbox textarea{
+    border-color: #DFDFDF;
+}
+.postbox h3 {
+    color: #464646;
+}
+.postbox h3 {
+    -moz-background-clip: border;
+    -moz-background-inline-policy: continuous;
+    -moz-background-origin: padding;
+    background: #DFDFDF url(./images/gray-grad.png) repeat-x scroll left top;
+    text-shadow:0 1px 0 #FFFFFF;
+}
+.postbox:hover .handlediv {
+    -moz-background-clip: border;
+    -moz-background-inline-policy: continuous;
+    -moz-background-origin: padding;
+    background: transparent url(./images/menu-bits.gif) no-repeat scroll left -111px;
+}
+.post-body-content .titlewrap .title{
+    background-color: #FFFFFF;
+    border-color: #DFDFDF;
+}
+.editorcontainer, .post-status-info, .titlediv .title {
+    border-color:#DFDFDF;
+}
+ .post-status-info {
+background-color:#EDEDED;
+}
+.postbox .inside .inside-body .misc-pub-section {
+border-bottom-color:#EEEEEE;
+}
+/*editToolbar*/
+.editorcontainer .editButton {
+    background-color:#E9E8E8;
+    border-color:#B2B2B2;
+}
+.editorcontainer a.editButtonEnabled:hover,
+.editorcontainer a.editButtonActive,
+.editorcontainer a.editButtonSelected {
+    background-color: #d5d5d5;
+    border-color: #777 !important;
+}
+
+.editorcontainer .editButtonDisabled {
+    border-color: #ccc !important;
+}
+.editorcontainer table.editListBoxEnabled:hover .editOpen,
+.editorcontainer .editListBoxHover .editOpen,
+.editorcontainer .editListBoxSelected .editOpen,
+.editorcontainer .editListBoxSelected .editText {
+    border-color: #777 !important;
+    background-color: #d5d5d5;
+
+}
+.editorcontainer .editSplitButton a.editOpen:hover,
+.editorcontainer .editSplitButtonSelected a.editOpen,
+.editorcontainer table.editSplitButtonEnabled:hover a.editAction,
+.editorcontainer a.editAction:hover {
+    background-color: #d5d5d5 ;
+    border-color: #777 !important;
+
+}
+
+.editorcontainer .editSplitButtonActive {
+    background-color: #B2B2B2;
+}
+
+.editorcontainer .editSplitButton a.editAction, .editorcontainer .editSplitButton a.editOpen {
+    background-color:#E8E8E8;
+    border-color:#B2B2B2;
+}
+
+.poststuff .edButtonPreview, .poststuff .edButtonHTML {
+    background-color:#F1F1F1;
+    border-color:#DFDFDF;
+    color:#999999;
+}
+.poststuff .editor-toolbar .active {
+    background-color:#E9E9E9;
+    border-bottom-color:#E9E9E9;
+    color:#333333;
+}
+.editSplitButtonMenu .editMenu .editText {
+    color:#000000;
+}
+.poststuff .editor-toolbar .active {
+    background-color:#E9E9E9;
+    border-bottom-color:#E9E9E9;
+    color:#333333;
+}
+.editorcontainer .editStatusbar {
+border-color:#EDEDED;
+}
+.editorcontainer .editStatusbar {
+background-color:#F5F5F5;
+color:#000000;
+}
+.editorcontainer *, .editorcontainer a:hover, .editorcontainer a:link, .editorcontainer a:visited, .editorcontainer a:active {
+    color:#000000;
+}
+.editorcontainer tr.editFirst td.editToolbar {
+    background-color:#DFDFDF;
+    border-color:#DFDFDF;
+}
+.editSplitButtonMenu .editMenu table {
+    background-color:#EBEAEB;
+}
+.editSplitButtonMenu .editMenuItemTitle a {
+    background-color:#CCCCCC;
+    border-bottom-color:#AAAAAA;
+}
+/*.icon-xxxx*/
+.icon-options-general{
+    background-position: -492px -5px !important;
+}
+.icon-link-manager {
+    background-position: -190px -5px !important;
+}
+.icon-edit {
+    background-position: -552px -5px !important;
+}
+
+/*menu icon*/
+.adminmenu #menu-media div.menu-image {
+    background-position: -121px -33px;
+}
+.adminmenu #menu-media:hover div.menu-image,
+.adminmenu #menu-media.has-current-submenu div.menu-image {
+    background-position: -121px -1px;
+}
+.adminmenu #menu-dashboard div.menu-image {
+    background-position: -61px -33px;
+}
+.adminmenu #menu-dashboard:hover div.menu-image,
+.adminmenu  #menu-dashboard.has-current-submenu div.menu-image,
+.adminmenu  #menu-dashboard.current div.menu-image {
+    background-position: -61px -1px;
+}
+.adminmenu #menu-posts div.menu-image {
+    background-position: -272px -33px;
+}
+.adminmenu #menu-posts:hover div.menu-image,
+.adminmenu  #menu-posts.has-current-submenu div.menu-image,
+.adminmenu  #menu-posts.current div.menu-image {
+    background-position: -272px -1px;
+}
+.adminmenu #menu-links div.menu-image {
+    background-position: -91px -33px;
+}
+.adminmenu #menu-links:hover div.menu-image,
+.adminmenu  #menu-links.has-current-submenu div.menu-image,
+.adminmenu  #menu-links.current div.menu-image {
+    background-position: -91px -1px;
+}
+.adminmenu #menu-pages div.menu-image {
+    background-position: -151px -33px;
+}
+.adminmenu #menu-pages:hover div.menu-image,
+.adminmenu  #menu-pages.has-current-submenu div.menu-image,
+.adminmenu  #menu-pages.current div.menu-image {
+    background-position: -151px -1px;
+}
+.adminmenu #menu-comments div.menu-image {
+    background-position: -31px -33px;
+}
+.adminmenu #menu-comments:hover div.menu-image,
+.adminmenu  #menu-comments.has-current-submenu div.menu-image,
+.adminmenu  #menu-comments.current div.menu-image {
+    background-position: -31px -1px;
+}
+.adminmenu #menu-plugins div.menu-image {
+    background-position: -181px -33px;
+}
+.adminmenu #menu-plugins:hover div.menu-image,
+.adminmenu  #menu-plugins.has-current-submenu div.menu-image,
+.adminmenu  #menu-plugins.current div.menu-image {
+    background-position: -181px -1px;
+}
+.adminmenu #menu-plugins div.menu-image {
+    background-position: -181px -33px;
+}
+.adminmenu #menu-plugins:hover div.menu-image,
+.adminmenu  #menu-plugins.has-current-submenu div.menu-image,
+.adminmenu  #menu-plugins.current div.menu-image {
+    background-position: -181px -1px;
+}
+.adminmenu #menu-users div.menu-image {
+    background-position: -301px -33px;
+}
+.adminmenu #menu-users:hover div.menu-image,
+.adminmenu  #menu-users.has-current-submenu div.menu-image,
+.adminmenu  #menu-users.current div.menu-image {
+    background-position: -301px -1px;
+}
+.adminmenu #menu-tools div.menu-image {
+    background-position: -211px -33px;
+}
+.adminmenu #menu-tools:hover div.menu-image,
+.adminmenu  #menu-tools.has-current-submenu div.menu-image,
+.adminmenu  #menu-tools.current div.menu-image {
+    background-position: -211px -1px;
+}
+.adminmenu #menu-settings div.menu-image {
+    background-position: -241px -33px;
+}
+.adminmenu #menu-settings:hover div.menu-image,
+.adminmenu  #menu-settings.has-current-submenu div.menu-image,
+.adminmenu  #menu-settings.current div.menu-image {
+    background-position: -241px -1px;
+}

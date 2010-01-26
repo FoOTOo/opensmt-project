@@ -1,0 +1,79 @@
+.innerhead .head-logo {
+    margin: 7px 0 0 7px;
+}
+* html .adminmenu {
+    margin-left: -80px;
+}
+* html .adminmenu li.menu-top {
+    display: inline;
+    padding: 0;
+    margin: 0;
+}
+* html .adminmenu div.menu-image {
+    height: 29px;
+}
+* html .adminmenu .has-submenu .menu-toggle {
+    background: url(./images/menu-bits.gif) no-repeat scroll left -109px;
+}
+* html .adminmenu li.has-current-submenu .menu-toggle {
+    background: url(./images/menu-bits.gif) no-repeat scroll left -206px;
+}
+ul.adminmenu .submenu ul li  {
+    padding : 0px;
+}
+ul.adminmenu .submenu ul li a {display:inline-block}
+ul.adminmenu .submenu ul li a {display:block;}
+.adminmenu .submenu li.submenu-head {
+    padding: 3px 4px 4px 10px;
+    zoom: 100%;
+}
+.adminmenu .current a.current:hover{
+    background-color:#f5f5f5 !important ;
+}
+.adminmenu div.menu-image {
+    height: 29px;
+}
+* html #screen-meta .creen-meta-toggle {
+    display: inline-block;
+    width: 150px;
+    text-align: center;
+}
+#screen-options-wrap {
+    overflow: hidden;
+}
+#screen-meta a.show-settings {
+    width: 100px;
+    display: inline-block;
+}
+input.button,
+input.button-secondary,
+input.button-highlighted {
+    padding: 0;
+}
+.widefat tr, .widefat th {
+    margin-bottom: 0;
+    border-spacing: 0;
+}
+
+.widefat th input {
+    margin: 0 0 0 5px;
+}
+.widefat .check-column {
+    padding: 6px 0 2px;
+}
+.widefat tbody th.check-column {
+    padding: 4px 0 22px;
+}
+.admin-panel-wrap .postbox {
+    border: 1px solid #dfdfdf;
+}
+
+.admin-panel-wrap .postbox h3 {
+    margin-bottom: -1px;
+}
+.spostbox .inside .inside-body .misc-pub-section input,
+.spostbox .inside .inside-body .misc-pub-section .preview {
+	min-width: auto;
+	padding-left: 0;
+	padding-right: 0;
+}

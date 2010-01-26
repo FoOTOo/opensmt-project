@@ -1,0 +1,75 @@
+<div class="admin-panel-wrap">
+    <div class="icon32 icon-options-general">
+        <br/>
+    </div>
+    <h2>LAN Setup</h2>
+    <{if $execMessage}>
+    <div id="execMessage" class="updated fade" style="background-color: rgb(255, 251, 204);">
+        <{section name=line loop=$execMessage}>
+        <p>
+            <strong><{$execMessage[line]}></strong>
+        </p>
+        <{/section}>
+    </div>
+    <{else}>
+    <{/if}>
+    <form action="" method="post">
+        <table class="form-table">
+            <tbody>
+                <tr valign="top">
+                    <th scope="row">
+                        <label>Hostname:</label>
+                    </th>
+                    <td>
+                        <input class="regular-text" type="text" name="nodename" id="nodename" value="<{$nodename}>"/>
+                    </td>
+                </tr>
+                <tr valign="top">
+                    <th scope="row">
+                        <label>DHCP:</label>
+                    </th>
+		    <td>
+                        <{if $dhcp}>
+			    <input type = "checkbox" name = "dhcp" checked>Check for Enable DHCP<p>
+                        <{else}>
+                            <input type = "checkbox" name = "dhcp" >Check for Enable DHCP<p>
+                        <{/if}>
+                        <br>
+                        Once dhcp is enabled, there is no need to modify the following IP address yourself.
+                    </td>
+          
+                        
+          
+                </tr>
+                <tr valign="top">
+                    <th scope="row">
+                        <label>IPv4:</label>
+                    </th>
+                    <td>
+                        <input class="regular-text" type="text" name="ipv4" id="ipv4" value="<{$ipv4}>"/>
+                    </td>
+                </tr>
+                <tr valign="top">
+                    <th scope="row">
+                        <label>IPv4 Netmask:</label>
+                    </th>
+                    <td>
+                        <input class="regular-text" type="text" name="mask" id="mask" value="<{$netmask}>"/>
+                    </td>
+                </tr>
+                <tr valign="top">
+                    <th scope="row">
+                        <label>Gateway:</label>
+                    </th>
+                    <td>
+                        <input class="regular-text" type="text" name="gateway" id="gateway" value="<{$gateway}>"/>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <p class="submit">
+            After change IP address, you need to access OpenSMT GUI with new IP.<br>
+            <input class="button-primary" type="submit" value="Save and Restart!" name="Submit"/>
+        </p>
+    </form>
+</div>

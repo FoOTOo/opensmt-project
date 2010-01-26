@@ -1,0 +1,43 @@
+<div class="admin-panel-wrap">
+    <div class="icon32 icon-options-general">
+        <br/>
+    </div>
+    <h2>LUN create</h2>
+    <form action="default" method="post">
+        <table class="form-table">
+            <tbody>
+                <tr valign="top">
+                    <th scope="row">
+                        <label>zfs father</label>
+                    </th>
+		    <td>
+			    <select name="zfs_name">
+				    <{foreach from=$zfsName item = zpool}>
+				    <option value = "<{$zpool}>"><{$zpool}></option>
+				    <{/foreach}>
+			    </select>
+                    </td>
+                </tr>
+                <tr valign="top">
+                    <th scope="row">
+                        <label>name</label>
+                    </th>
+                    <td>
+                        <input class="regular-text" type="text" name="name" id="name" value=""/>
+                    </td>
+                </tr>
+                <tr valign="top">
+                    <th scope="row">
+                        <label>Size</label>
+                    </th>
+                    <td>
+                        <input class="regular-text" type="text" name="size" id="size" value=""/>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <p class="submit">
+            <input class="button-primary" type="submit" value="Create!" name="luncreate"/>
+        </p>
+    </form>
+</div>

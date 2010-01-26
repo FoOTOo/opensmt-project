@@ -1,0 +1,91 @@
+<div class="admin-panel-wrap">
+    <div class="icon32 icon-options-general">
+        <br/>
+    </div>
+
+    <{if $myArray}>
+    <div class="admin-panel-wrap">
+        <h2>zfs snapshot</h2>
+        <form class="posts-filter" action="" method="post">
+            <table class="widefat post fixed" cellspacing="0">
+                <thead>
+                    <tr>
+                        <th class="manage-column column-title" style="" scope="col" width="25%">Name</th>
+			<th class="manage-column column-author" style="" scope="col">Used</th>
+			<th class="manage-column column-author" style="" scope="col">Avail</th>
+			<th class="manage-column column-author" style="" scope="col">Refer</th>
+			<th class="manage-column column-author" style="" scope="col">Mount Point</th>
+                        <th class="manage-column column-author" style="" scope="col"></th>
+                    </tr>
+	    	</thead>
+		<tbody>
+        		<{section name=line loop=$myArray}>
+			<tr>
+				<{foreach from=$myArray[line] item=col}>
+				<td><{$col}></td>
+				<{/foreach}>
+                                <td>
+                                    <input class="button-secondary action doaction" type="submit" value="Destroy!" name="<{$smarty.section.line.index}>"/>
+                                </td>
+			</tr>
+			<{/section}>
+		</tbody>
+            </table>
+        </form>
+    </div>
+    <{else}>
+    <{/if}>
+    <br/><br/><br/>
+    <form action="" method="post">
+        <table class="form-table">
+            <tbody>
+                <tr valign="top">
+                    <th scope="row">
+                        <label>zfs name</label>
+                    </th>
+		    <td>
+			    <select name="zfs_name">
+				    <{foreach from=$zfsName item = zpool}>
+				    <option value = "<{$zpool}>"><{$zpool}></option>
+				    <{/foreach}>
+			    </select>
+                    </td>
+                </tr>
+                <tr valign="top">
+                    <th scope="row">
+                        <label>snapshot name</label>
+                    </th>
+                    <td>
+                        <input class="regular-text" type="text" name="snapshot_name" id="zfs_name" value=""/>
+                    </td>
+                </tr>
+               
+            </tbody>
+        </table>
+        <p class="submit">
+            <input class="button-primary" type="submit" value="Create!" name="Submit"/>
+        </p>
+    </form>
+    <br/><br/><br/>
+     <form action="" method="post">
+        <table class="form-table">
+            <tbody>
+                <tr valign="top">
+                    <th scope="row">
+                        <label>snapshot name</label>
+                    </th>
+		    <td>
+			    <select name="rollback_name">
+				    <{foreach from=$zfssnapshot item = snapshot}>
+				    <option value = "<{$snapshot}>"><{$snapshot}></option>
+				    <{/foreach}>
+			    </select>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <p class="submit">
+            <input class="button-primary" type="submit" value="Rollback!" name="rollback" />
+        </p>
+    </form>
+</div>

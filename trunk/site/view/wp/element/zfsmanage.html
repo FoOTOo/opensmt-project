@@ -1,0 +1,40 @@
+<div class="admin-panel-wrap">
+    <div class="icon32 icon-options-general">
+        <br/>
+    </div>
+    <h2>zfs manage</h2>
+    <{if $myArray}>
+    <div class="admin-panel-wrap">
+
+        <form class="posts-filter" action="zfsedit" method="post" id="zfsmanage">
+            <table class="widefat post fixed" cellspacing="0">
+                <thead>
+                    <tr>
+                        <th class="manage-column column-title" style="" scope="col" width="30%">Name</th>
+			<th class="manage-column column-author" style="" scope="col" width="25%">MOUNTPOINT</th>
+			<th class="manage-column column-author" style="" scope="col">SHARE</th>
+			<th class="manage-column column-author" style="" scope="col">QUOTA</th>
+			<th class="manage-column column-author" style="" scope="col">RESERVATION</th>
+			<th class="manage-column column-author" style="" scope="col"></th>
+                    </tr>
+	    	</thead>
+		<tbody>
+        		<{foreach from=$myArray key=k item=row}>
+			<tr>
+				<{foreach from=$row item=col}>
+				<td><{$col}></td>
+				<{/foreach}>
+				<td>
+                                    <input class="button-secondary action doaction" type="submit" name = "<{$row[0]}>" value="edit" />
+	    			</td>
+			</tr>
+			<{/foreach}>
+		</tbody>
+            </table>
+
+        </form>
+
+    </div>
+    <{else}>
+    <{/if}>
+</div>

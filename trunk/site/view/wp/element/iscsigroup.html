@@ -1,0 +1,103 @@
+<div class="admin-panel-wrap">
+    <div class="icon32 icon-options-general">
+        <br/>
+    </div>
+    <div class="admin-panel-wrap">
+        <h2>Target Group</h2>
+        <form class="posts-filter" action="addtgmember" method="post" id="group">
+            <table class="widefat post fixed" cellspacing="0">
+                <thead>
+                    <tr>
+                        <th class="manage-column column-title" style="" scope="col" width="15%">Group</th>
+			<th class="manage-column column-author" style="" scope="col" width="49%">Memeber</th>
+                        <th class="manage-column column-author" style="" scope="col" width="12%"></th>
+                        <th class="manage-column column-author" style="" scope="col" width="12%"></th>
+                        <th class="manage-column column-author" style="" scope="col" width="12%"></th>
+                    </tr>
+	    	</thead>
+		<tbody>
+        		<{foreach from=$myArray key=k item=row}>
+			<tr>
+				<td><{$k}></td>
+                                <td class='vtable'>
+                                    <select class='formselect' name='tgmember' id='tgmember' size='10' style="height: 50px; width: 450px">
+                                        <{foreach from=$row item=member}>
+                                        <option value="<{$member}>" ><{$member}></option>
+                                        <{/foreach}>
+                                    </select>
+				</td>
+				<td>
+					<input class="button-secondary action doaction" type="submit" name = "<{$k}>" value="Add Member" />
+	    			</td>
+                                <td>
+					<input class="button-secondary action doaction" type="submit" name = "<{$k}>D" value="Delete Member" onclick="document.getElementById('group').action='default'"/>
+	    			</td>
+                                <td>
+					<input class="button-secondary action doaction" type="submit" name = "<{$k}>G" value="Delete Group" onclick="document.getElementById('group').action='default'"/>
+	    			</td>
+			</tr>
+			<{/foreach}>
+		</tbody>
+            </table>
+        </form>
+        <form action="addtg" method="post">
+        <p class="submit">
+            <input class="button-primary" type="submit" value="Add new Target Group" name="addtg" />
+        </p>
+        </form>
+    </div>
+    <div class="admin-panel-wrap">
+        <h2>Host Group</h2>
+        <form class="posts-filter" action="addhgmember" method="post" id="group2">
+            <table class="widefat post fixed" cellspacing="0">
+                <thead>
+                    <tr>
+                        <th class="manage-column column-title" style="" scope="col" width="15%">Group</th>
+			<th class="manage-column column-author" style="" scope="col" width="49%">Memeber</th>
+                        <th class="manage-column column-author" style="" scope="col" width="12%"></th>
+                        <th class="manage-column column-author" style="" scope="col" width="12%"></th>
+                        <th class="manage-column column-author" style="" scope="col" width="12%"></th>
+                    </tr>
+	    	</thead>
+		<tbody>
+        		<{foreach from=$myArray2 key=k item=row}>
+			<tr>
+				<td><{$k}></td>
+                                <td class='vtable'>
+                                    <select class='formselect' name='hgmember' id='hgmember' size='10' style="height: 50px; width: 450px">
+                                        <{foreach from=$row item=member}>
+                                        <option value="<{$member}>" ><{$member}></option>
+                                        <{/foreach}>
+                                    </select>
+				</td>
+				<td>
+					<input class="button-secondary action doaction" type="submit" name = "<{$k}>" value="Add Member" />
+	    			</td>
+                                <td>
+					<input class="button-secondary action doaction" type="submit" name = "<{$k}>D" value="Delete Member" onclick="document.getElementById('group2').action='default'"/>
+	    			</td>
+                                <td>
+					<input class="button-secondary action doaction" type="submit" name = "<{$k}>G" value="Delete Group" onclick="document.getElementById('group2').action='default'"/>
+	    			</td>
+			</tr>
+			<{/foreach}>
+		</tbody>
+            </table>
+        </form>
+        <form action="addhg" method="post">
+        <p class="submit">
+            <input class="button-primary" type="submit" value="Add new Host Group" name="addhg" />
+        </p>
+        </form>
+    </div>
+    <{if $execMessage}>
+    <div id="execMessage" class="updated fade" style="background-color: rgb(255, 251, 204);">
+        <{section name=line loop=$execMessage}>
+        <p>
+            <strong><{$execMessage[line]}></strong>
+        </p>
+        <{/section}>
+    </div>
+    <{else}>
+    <{/if}>
+</div>

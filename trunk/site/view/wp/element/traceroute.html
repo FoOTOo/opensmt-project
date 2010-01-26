@@ -1,0 +1,51 @@
+<div class="admin-panel-wrap">
+    <div class="icon32 icon-options-general">
+        <br/>
+    </div>
+    <h2>Traceroute</h2>
+    <{if $execMessage}>
+    <div id="execMessage" class="updated fade" style="background-color: rgb(255, 251, 204);">
+        <{section name=line loop=$execMessage}>
+        <p>
+            <strong><{$execMessage[line]}></strong>
+        </p>
+        <{/section}>
+    </div>
+    <{else}>
+    <{/if}>
+    <form action="" method="post">
+        <table class="form-table">
+            <tbody>
+                <tr valign="top">
+                    <th scope="row">
+                        <label>Enter host name or ip:</label>
+                    </th>
+                    <td>
+                        <input class="regular-text" type="text" id="traceroute_des" name="traceroute_des" value="127.0.0.1"/>
+                    </td>
+                </tr>
+
+                <tr valign="top">
+                    <th scope="row">
+                        <label>Specify max ttl:</label>
+                    </th>
+                    <td>
+                        <select id="traceroute_ttl" name="traceroute_ttl">
+                            <{section name=customer loop=65 start=1}>
+                            <{if $smarty.section.customer.index==30}>
+                            <option value="<{$smarty.section.customer.index}>" selected="selected"><{$smarty.section.customer.index}></option>
+                            <{else}>
+                            <option value="<{$smarty.section.customer.index}>"><{$smarty.section.customer.index}></option>
+                            <{/if}>
+                            <{/section}>
+                        </select>
+                    </td>
+                </tr>
+
+            </tbody>
+        </table>
+        <p class="submit">
+            <input class="button-primary" type="submit" value="Traceroute!" name="Submit"/>
+        </p>
+    </form>
+</div>

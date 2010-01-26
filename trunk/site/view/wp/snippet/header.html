@@ -1,0 +1,23 @@
+<div class="head">
+    <div class="innerhead">
+        <div class="head-logo">
+        </div>
+        <h1>
+            <a href="javascript:;" onclick="return false;" title="查看站点">openSMT <span>&larr; View</span></a>
+        </h1>
+        <div class="head-info">
+            <div class="user_info">
+                <{if $authCheck==true}>
+                <p>
+                    <a title="Edit your profile" href="javascript:;" onclick="return false;"><{$cue_user_name}></a>
+                    <span class="turbo-nag hidden" style="display: inline;"> | <a href="javascript:;" onclick="return false;">Settings</a></span> |
+                    <a title="退出" href="<{$webUrl}>/auth/login/logout">logout</a>
+                </p>
+                <{/if}>
+            </div>
+        </div>
+        <!--
+        
+        -->
+    </div>
+</div>

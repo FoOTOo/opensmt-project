@@ -1,0 +1,67 @@
+<div class="admin-panel-wrap">
+    <div class="icon32 icon-options-general">
+        <br/>
+    </div>
+    <h2>Add view</h2>
+    <form action="default" method="post">
+        <table class="form-table">
+            <tbody>
+                <tr valign="top">
+                    <th scope="row">
+                        <label>LUN Name</label>
+                    </th>
+                    <td>
+                        <input class="regular-text" type="text" readonly="" name="lun_name" id="lun_name" value="<{$lun_name}>"/>
+                    </td>
+                </tr>
+                <tr valign="top">
+                    <th scope="row">
+                        <label>Host group</label>
+                     </th>
+                     <td>
+			    <select name="host_group">
+                                    <option value="">All</option>
+                                    <{foreach from=$hg_list item=hg}>
+                                    <option value="<{$hg}>"><{$hg}></option>
+                                    <{/foreach}>
+			    </select>
+                      </td>
+                </tr>
+                <tr valign="top">
+                    <th scope="row">
+                        <label>Target group</label>
+                     </th>
+                     <td>
+			    <select name="target_group">
+                                    <option value="">All</option>
+				    <{foreach from=$tg_list item=tg}>
+                                    <option value="<{$tg}>"><{$tg}></option>
+                                    <{/foreach}>
+			    </select>
+                      </td>
+                </tr>
+            </tbody>
+        </table>
+        <p class="submit">
+            <input class="button-primary" type="submit" value="Add view" name="addview"/>
+        </p>
+    </form>
+        <div class="metabox-holder poststuff">
+        <form method="post" action="post.php" onsubmit="return false;">
+            <div class="postbox">
+                        <div class="handlediv" title="显示/隐藏">
+                            <br/>
+                        </div>
+                        <h3 class="hndle">
+                            <span>View Info</span>
+                        </h3>
+                        <div class="inside">
+                            <div class="inside-body">
+                                <pre id="execMessage"><{$execMessage}></pre>
+                            </div>
+                        </div>
+                    </div>
+            <div class="clear"></div>
+        </form>
+    </div>
+</div>

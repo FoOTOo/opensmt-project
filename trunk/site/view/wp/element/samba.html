@@ -1,0 +1,47 @@
+<div class="admin-panel-wrap">
+    <div class="icon32 icon-options-general">
+        <br/>
+    </div>
+    <{if $smbshare}>
+    <div class="admin-panel-wrap">
+        <h2>Samba Share List</h2>
+        <form class="posts-filter" action="editsamba" method="post" id="samba">
+            <table class="widefat post fixed" cellspacing="0">
+                <thead>
+                    <tr>
+                        <th class="manage-column column-title" style="" scope="col" width="30%">Path</th>
+			<th class="manage-column column-author" style="" scope="col">Name</th>
+                        <th class="manage-column column-author" style="" scope="col" width="25%">Comment</th>
+                        <th class="manage-column column-author" style="" scope="col" width="15%">Browseable</th>
+                        <th class="manage-column column-author" style="" scope="col"></th>
+                        <th class="manage-column column-author" style="" scope="col"></th>
+                    </tr>
+	    	</thead>
+		<tbody>
+        		<{foreach key=sharename item=shareinfo from=$smbshare}>
+			<tr>
+				<td><{$shareinfo[$pa]}></td>
+                                <td><{$sharename}></td>
+                                <td><{$shareinfo[$comm]}></td>
+                                <td><{$shareinfo[$browse]}></td>
+				<td>
+					<input class="button-secondary action doaction" type="submit" name = "<{$sharename}>" value="Edit" />
+	    			</td>
+                                <td>
+					<input class="button-secondary action doaction" type="submit" name = "<{$sharename}>D" value="Delete" onclick="document.getElementById('samba').action='samba'"/>
+	    			</td>
+			</tr>
+			<{/foreach}>
+		</tbody>
+            </table>
+
+        </form>
+        <form action="editsamba" method="post">
+        <p class="submit">
+            <input class="button-primary" type="submit" value="Add New Samba Share" name="addsamba" />
+        </p>
+        </form>
+    </div>
+    <{else}>
+    <{/if}>
+</div>

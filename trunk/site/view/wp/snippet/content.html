@@ -1,0 +1,73 @@
+<div class="content">
+    <div class="innercontent-side">
+        <ul id="adminmenu" class="adminmenu">
+            <li id="menu-dashboard" class="first-item  menu-top menu-top-first menu-top-last <{if $menucurrent == '__index__'}>has-current-submenu<{/if}>">
+                <div class="menu-image">
+                    <br/>
+                </div>
+                <div class="menu-toggle">
+                    <br/>
+                </div>
+                <a class="first-item  menu-top menu-top-first menu-top-last <{if $menucurrent == '__index__'}>has-current-submenu<{/if}>" tabindex="1" href="<{$webUrl}>" >index</a>
+            </li>
+            <li class="menu-separator"></li>
+            
+            <{foreach from=$adminmenu item=item name=foo}>
+            
+            <li id ="menu-<{$item.id}>" class="has-submenu <{if $smarty.foreach.foo.index == 0}>menu-top-first<{/if}> <{if $item.current == $menucurrent}>has-current-submenu<{/if}> <{if $item.open == $menuopen}>menu-open<{/if}> <{if $smarty.foreach.foo.last}>menu-top-last<{else}><{/if}>">
+                <div class="menu-image">
+                    <br/>
+                </div>
+                <div class="menu-toggle">
+                    <br/>
+                </div>
+                <a class="has-submenu menu-top <{if $smarty.foreach.foo.index == 0}>menu-top-first<{/if}> <{if $item.current == $menucurrent}>has-current-submenu<{/if}> <{if $item.open == $menuopen}>menu-open<{/if}> <{if $smarty.foreach.foo.last}>menu-top-last<{else}><{/if}>" tabindex="1" href="javascript:;" onclick="return false;"><{$item.desc}></a>
+                <div class="submenu">
+                    <div class="submenu-head"><{$item.id}></div>
+                    <{assign var=submenu value=$item.sub}>
+                   
+                    <ul>
+                        <{foreach from=$submenu item=menu}>
+                        <li <{if $subaction == $menu.action}>class="current"<{/if}>>
+                           
+                            <a tabindex="1" <{if $subaction == $menu.action}>class="current"<{/if}> href="<{$webUrl}><{$menu.href}>" ><{$menu.text}></a>
+                        </li>
+                        <{/foreach}>
+                    </ul>
+                </div>
+            </li>
+            <{/foreach}>
+            <li class="menu-separator"></li>
+
+        </ul>
+        <div class="admin-panel">
+            <div id="screen-meta" class="screen-meta" style="display: none;">
+                <div id="show-help-link-wrap" class="screen-meta-panel">
+                    <h5>在屏幕上显示帮助</h5>
+                </div>
+                <div id="show-settings-link-wrap" class="screen-meta-panel">
+                    <h5>在屏幕上显示设置</h5>
+                </div>
+                <div id="screen-meta-links" class="screen-meta-links">
+                    <div class="screen-meta-toggle">
+                        <a id="show-help-link" class="show-settings" href="javascript:;"  onclick="return false;">帮助</a>
+                    </div>
+                    <div class="screen-meta-toggle" >
+                        <a id="show-settings-link" class="show-settings" href="javascript:;" onclick="return false;">显示选项</a>
+                    </div>
+                </div>
+            </div>
+            <div class="update-nag" style="display: none;">
+                Welcome openSMT
+                <a href="javascript:;" onclick="return false;">readme</a>
+                。
+            </div>
+            <{if $tplfile}>
+            <{include file="$tplfile"}>
+            <{else}>
+            <{$tpldata}>
+            <{/if}>
+        </div>
+        <div class="clear"></div>
+    </div>
+</div>

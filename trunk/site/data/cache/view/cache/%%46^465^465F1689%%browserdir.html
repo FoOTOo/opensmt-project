@@ -1,0 +1,36 @@
+145
+a:4:{s:8:"template";a:1:{s:23:"element/browserdir.html";b:1;}s:9:"timestamp";i:1781085851;s:7:"expires";i:1781089451;s:13:"cache_serials";a:0:{}}<script type="text/javascript">
+    function selectDir(dir){
+        var selElement = window.opener.window.selElement;
+        
+        window.opener.document.getElementById(selElement).value = dir;
+        window.close();
+    }
+</script>
+<div class="admin-panel-wrap">
+    <div class="icon32 icon-options-general">
+        <br/>
+    </div>
+
+    <h2>Select Dir</h2>
+    <table class="form-table">
+        <tbody>
+                        <tr valign="top">
+                <th scope="row" align="left" width="*">
+                    <a href="/site/file/browser/dir/?dir=/rpool/mytest1/">.</a>
+                </th>
+                <td width="20%">
+                    <button onclick="return selectDir('/rpool/mytest1/');">Select</button>
+                </td>
+            </tr>
+                        <tr valign="top">
+                <th scope="row" align="left" width="*">
+                    <a href="/site/file/browser/dir/?dir=/rpool/">..</a>
+                </th>
+                <td width="20%">
+                    <button onclick="return selectDir('/rpool/');">Select</button>
+                </td>
+            </tr>
+                    </tbody>
+    </table>
+</div>

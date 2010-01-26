@@ -1,0 +1,49 @@
+<div class="admin-panel-wrap">
+    <div class="icon32 icon-options-general">
+        <br/>
+    </div>
+    <div class="admin-panel-wrap">
+        <h2>NFS Share List</h2>
+        <form class="posts-filter" action="editnfs" method="post" id="nfsshare">
+            <table class="widefat post fixed" cellspacing="0">
+                <thead>
+                    <tr>
+                        <th class="manage-column column-title" style="" scope="col" width="30%">Path</th>
+						<th class="manage-column column-author" style="" scope="col">Authority</th>
+                        <th class="manage-column column-author" style="" scope="col">Network</th>
+                        <th class="manage-column column-author" style="" scope="col">Description</th>
+                        <th class="manage-column column-author" style="" scope="col"></th>
+                        <th class="manage-column column-author" style="" scope="col"></th>
+                    </tr>
+	    	</thead>
+		<tbody>
+        		<{foreach item=shareinfo from=$nfsList}>
+			<tr>
+				<td><{$shareinfo[0]}></td>
+                                <td><{$shareinfo[1]}></td>
+                                <{if $shareinfo[2]}>
+                                    <td><{$shareinfo[2]}>/<{$shareinfo[3]}></td>
+                                <{else}>
+                                    <td></td>
+                                <{/if}>
+                                <td><{$shareinfo[4]}></td>
+				<td>
+					<input class="button-secondary action doaction" type="submit" name = "<{$shareinfo[0]}>" value="Edit" />
+	    			</td>
+                                <td>
+					<input class="button-secondary action doaction" type="submit" name = "<{$shareinfo[0]}>D" value="Delete" onclick="document.getElementById('nfsshare').action='nfs'"/>
+	    			</td>
+			</tr>
+			<{/foreach}>
+		</tbody>
+            </table>
+
+        </form>
+        <form action="editnfs" method="post">
+        <p class="submit">
+            <input class="button-primary" type="submit" value="Add New NFS Share" name="addnfs" />
+        </p>
+        </form>
+
+    </div>
+</div>

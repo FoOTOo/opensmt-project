@@ -1,0 +1,29 @@
+<script type="text/javascript">
+    function selectDir(dir){
+        var selElement = window.opener.window.selElement;
+        
+        window.opener.document.getElementById(selElement).value = dir;
+        window.close();
+    }
+</script>
+<div class="admin-panel-wrap">
+    <div class="icon32 icon-options-general">
+        <br/>
+    </div>
+
+    <h2>Select Dir</h2>
+    <table class="form-table">
+        <tbody>
+            <{foreach from=$list2 key=k item=col}>
+            <tr valign="top">
+                <th scope="row" align="left" width="*">
+                    <a href="<{$webUrl}>/file/browser/dir/?dir=<{$col}>"><{$k}></a>
+                </th>
+                <td width="20%">
+                    <button onclick="return selectDir('<{$col}>');">Select</button>
+                </td>
+            </tr>
+            <{/foreach}>
+        </tbody>
+    </table>
+</div>

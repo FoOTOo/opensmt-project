@@ -1,0 +1,166 @@
+<!--
+To change this template, choose Tools | Templates
+and open the template in the editor.
+-->
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<div class = "admin-panel-wrap">
+	<div class = "icon32 icon-options-general">
+		<br/>
+	</div>
+	<head>
+    <title></title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	</head>
+	<h2>Services | Status</h2>
+  	<body>
+		<form action = "" method = "post">
+		<table class = "form-table">
+			<tbody>
+				<tr valign = "top">
+					<th scope = "row">
+						<label> Service </label>
+					</th>
+					<th scope = "row">
+						<label> Setting </label>
+					</th>
+					<th scope = "row">
+						<label> Status </label>
+					</th>
+					<th scope = "row">
+						<label> Enable/Disable </label>
+					</th>
+				</tr>
+				<tr valign = "top">
+					<th scope = "row">
+						<label> CIFS/SMB </label>
+					</th>
+					<td>
+						<a href = "../default/smbmanagement">Setting</a>
+					</td>
+					<{if $osmbstatus == "on"}>
+					<td> Enabled </td>
+					<td><input class = 'button-secondary action doaction' type = "submit" name = 'smbenable' value = "Disable"></td>
+					<{else}>
+					<td>Disabled</td>
+					<td><input class = 'button-secondary action doaction' type = "submit" name = 'smbenable' value = "Enable"></td>
+					<{/if}>
+				</tr>
+				<tr valign = "top">
+					<th scope = "row">
+						<label> FTP </label>
+					</th>
+					<td>
+						<a href = "../default/ftpmanagement">Setting</a>
+					</td>
+					<{if $oftpstatus == "on"}>
+					<td> Enabled </td>
+					<td><input class = 'button-secondary action doaction' type = "submit" name = 'ftpenable' value = "Disable"></td>
+					<{else}>
+					<td>Disabled</td>
+					<td><input class = 'button-secondary action doaction' type = "submit" name = 'ftpenable' value = "Enable"></td>
+					<{/if}>
+				</tr>
+				<tr valign = "top">
+					<th scope = "row">
+						<label> SSH </label>
+					</th>
+					<td>
+						<a href = "../default/sshmanagement">Setting</a>
+					</td>
+					<{if $osshstatus == "on"}>
+					<td> Enabled </td>
+					<td><input class = 'button-secondary action doaction' type = "submit" name = 'sshenable' value = "Disable"></td>
+					<{else}>
+					<td>Disabled</td>
+					<td><input class = 'button-secondary action doaction' type = "submit" name = 'sshenable' value = "Enable"></td>
+					<{/if}>
+				</tr>
+				<tr valign = "top">
+					<th scope = "row">
+						<label> NFS </label>
+					</th>
+					<td>
+						<a href = "../default/nfsmanagement">Setting</a>
+					</td>
+					<{if $onfsstatus == "on"}>
+					<td> Enabled </td>
+					<td><input class = 'button-secondary action doaction' type = "submit" name = 'nfsenable' value = "Disable"></td>
+					<{else}>
+					<td>Disabled</td>
+					<td><input class = 'button-secondary action doaction' type = "submit" name = 'nfsenable' value = "Enable"></td>
+					<{/if}>
+				</tr>
+                                <tr valign = "top">
+					<th scope = "row">
+						<label> Rsync </label>
+					</th>
+					<td>
+						<a href = "../default/rsyncmanagement">Setting</a>
+					</td>
+					<{if $orsyncdstatus == "on"}>
+					<td> Enabled </td>
+					<td><input class = 'button-secondary action doaction' type = "submit" name = 'rsyncdenable' value = "Disable"></td>
+					<{else}>
+					<td>Disabled</td>
+					<td><input class = 'button-secondary action doaction' type = "submit" name = 'rsyncdenable' value = "Enable"></td>
+					<{/if}>
+				</tr>
+				<tr valign = "top">
+					<th scope = "row">
+						<label> Webserver </label>
+					</th>
+					<td>
+						<a href = "../default/httpmanagement">Setting</a>
+					</td>
+					<{if $ohttpstatus == "on"}>
+					<td> Enabled </td>
+					<td><input class = 'button-secondary action doaction' type = "submit" name = 'httpenable' value = "Disable"></td>
+					<{else}>
+					<td>Disabled</td>
+					<td><input class = 'button-secondary action doaction' type = "submit" name = 'httpenable' value = "Enable"></td>
+					<{/if}>
+				</tr>
+				<tr valign = "top">
+					<th scope = "row">
+						<label> ISCSI/Target </label>
+					</th>
+					<td>----
+					</td>
+					<{if $otargetstatus == "on"}>
+					<td> Enabled </td>
+					<td><input class = 'button-secondary action doaction' type = "submit" name = 'targetenable' value = "Disable"></td>
+					<{else}>
+					<td>Disabled</td>
+					<td><input class = 'button-secondary action doaction' type = "submit" name = 'targetenable' value = "Enable"></td>
+					<{/if}>
+				</tr>
+				<tr valign = "top">
+					<th scope = "row">
+						<label> System/STMF </label>
+					</th>
+					<td>
+						----
+					</td>
+					<{if $ostmfstatus == "on"}>
+					<td> Enabled </td>
+					<td><input class = 'button-secondary action doaction' type = "submit" name = 'stmfenable' value = "Disable"></td>
+					<{else}>
+					<td>Disabled</td>
+					<td><input class = 'button-secondary action doaction' type = "submit" name = 'stmfenable' value = "Enable"></td>
+					<{/if}>
+				</tr>
+
+			</tbody>
+		</table>
+		<input class = "regular-text" type = "hidden" readonly = "" name = "oftpstatus" id = "oftpstatus" value = "<{$oftpstatus}>">
+		<input class = "regular-text" type = "hidden" readonly = "" name = "osmbstatus" id = "osmbstatus" value = "<{$osmbstatus}>">
+		<input class = "regular-text" type = "hidden" readonly = "" name = "osshstatus" id = "osshstatus" value = "<{$osshstatus}>">
+		<input class = "regular-text" type = "hidden" readonly = "" name = "ohttpstatus" id = "ohttpstatus" value = "<{$ohttpstatus}>">
+		<input class = "regular-text" type = "hidden" readonly = "" name = "onfsstatus" id = "onfsstatus" value = "<{$onfsstatus}>">
+		<input class = "regular-text" type = "hidden" readonly = "" name = "otargetstatus" id = "otargetstatus" value = "<{$otargetstatus}>">
+		<input class = "regular-text" type = "hidden" readonly = "" name = "ostmfstatus" id = "ostmfstatus" value = "<{$ostmfstatus}>">
+                <input class = "regular-text" type = "hidden" readonly = "" name = "orsyncdstatus" id = "orsyncdstatus" value = "<{$orsyncdstatus}>">
+		</form>
+
+  </body>
+</div>

@@ -1,0 +1,73 @@
+<div class="admin-panel-wrap">
+    <div class="icon32 icon-options-general">
+        <br/>
+    </div>
+    <h2>Pool IO</h2>
+    <{if $execMessage}>
+    <div id="execMessage" class="updated fade" style="background-color: rgb(255, 251, 204);">
+        <{section name=line loop=$execMessage}>
+        <pre>
+            <strong><{$execMessage[line]}></strong>
+        </pre>
+        <{/section}>
+    </div>
+    <{else}>
+    <{/if}>
+    <form action="" method="post">    
+        <table class="form-table">
+            <tbody>
+                <tr valign="top">
+                    <th scope="row">
+                        <label>Pool Name</label>
+                    </th>
+                     <td>
+			    <select name="poolName">
+                                    <option value="">All</option>
+				    <{foreach from=$zpoolName item = zpool}>
+				    <option value = "<{$zpool}>"><{$zpool}></option>
+				    <{/foreach}>
+			    </select>
+                    </td>
+                </tr>
+                <tr valign="top">
+                    <th scope="row">
+                        <label>Per Time</label>
+                    </th>
+                    <td>
+                        <select name="perTime">
+                            <option value=""></option>
+                            <{section name=customer loop=10 start=1}>
+                            <option value="<{$smarty.section.customer.index}>"><{$smarty.section.customer.index}></option>
+                            <{/section}>
+                        </select>
+                    </td>
+                </tr>
+                <tr valign="top">
+                    <th scope="row">
+                        <label>Times</label>
+                    </th>
+                    <td>
+                        <select name="times">
+                            <option value=""></option>
+                            <{section name=customer loop=10 start=1}>
+                            <option value="<{$smarty.section.customer.index}>"><{$smarty.section.customer.index}></option>
+                            <{/section}>
+                        </select>
+                    </td>
+                </tr>
+                <tr valign="top">
+                    <th scope="row">
+                        <label>Virtual Device</label>
+                    </th>
+                    <td>
+                        <input type="checkbox" name="vdevice" value="1" />
+                    </td>
+                </tr>
+                
+            </tbody>
+        </table>
+        <p class="submit">
+            <input class="button-primary" type="submit" value="See!" name="Submit"/>
+        </p>
+    </form>
+</div>

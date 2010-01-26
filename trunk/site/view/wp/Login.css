@@ -1,0 +1,96 @@
+.login {
+    margin:7em auto;
+    width:320px;
+}
+.login * { margin: 0; padding: 0; }
+#login {
+
+}
+#login .fade {
+    margin-bottom: 10px;
+    margin-left:8px;
+}
+.login h1 a {
+    -moz-background-clip:border;
+    -moz-background-inline-policy:continuous;
+    -moz-background-origin:padding;
+    background:transparent url(images/logo_mo2.jpg) no-repeat scroll center top;
+    display:block;
+    height:67px;
+    overflow:hidden;
+    padding-bottom:15px;
+    text-indent:-9999px;
+    width:326px;
+}
+.login form {
+    margin-left: 8px;
+    padding: 16px 16px 40px 16px;
+    font-weight: normal;
+    -moz-border-radius: 11px;
+    -khtml-border-radius: 11px;
+    -webkit-border-radius: 11px;
+    border-radius: 5px;
+    background: #fff;
+    border: 1px solid #e5e5e5;
+    -moz-box-shadow: rgba(200,200,200,1) 0 4px 18px;
+    -webkit-box-shadow: rgba(200,200,200,1) 0 4px 18px;
+    -khtml-box-shadow: rgba(200,200,200,1) 0 4px 18px;
+    box-shadow: rgba(200,200,200,1) 0 4px 18px;
+
+
+}
+#user-pass, #user-login, #user-email {
+    margin:0;
+    padding:0;
+    
+    font-family:"Verdana";
+    font-size: 24px;
+    width: 97%;
+    padding: 3px;
+    margin-top: 2px;
+    margin-right: 6px;
+    margin-bottom: 16px;
+    border: 1px solid #e5e5e5;
+    background: #fbfbfb;
+
+}
+#user-pass {
+    width:94%;
+}
+.login form .submit input {
+    font-family: "Lucida Grande", Verdana, Arial, "Bitstream Vera Sans", sans-serif;
+    padding: 3px 10px;
+    border: none;
+    font-size: 12px;
+    border-width: 1px;
+    border-style: solid;
+    -moz-border-radius: 11px;
+    -khtml-border-radius: 11px;
+    -webkit-border-radius: 11px;
+    border-radius: 11px;
+    cursor: pointer;
+    text-decoration: none;
+    margin-top: -3px;
+    text-shadow: rgba(0,0,0,0.3) 0 -1px 0;
+}
+
+
+.login form p {
+    margin-bottom:0;
+}
+.login label {
+    color:#777777;
+    font-size:13px;
+}
+.login form input {
+    color:#555555;
+    
+}
+.login  form .forgetmenot {
+    float:left;
+    font-weight:normal;
+    margin-bottom:0;
+}
+.login  form .submit {
+ float:right;
+}

@@ -1,0 +1,77 @@
+<?php
+/*
+ * @copyright 2007-2009 opensmt.footoo.org All rights reserved.
+ * See cpyright.txt for copyright notices and details.
+ */
+
+class diskinfoController extends K980K_Controller_Action_Smarty {
+    public $menucurrent = 'Disk';
+    public $menuopen = 'Disk';
+
+    public function  __construct($options,$extendData) {
+       parent::__construct($options, $extendData);
+       $view = $this->getViewInstance();
+       $view->addTitle('Disk');
+    }
+    public function defaultAction() {
+        $shell = new K980K_Shell();
+	$view = $this->getViewInstance();
+	$viewOptions = $this->getViewOptions();
+	$return = $shell->exec('pfexec format');
+
+	$myArray = array();
+	$diskNum = (count($return) - 5) / 2;
+	for ($i = 0; $i < $diskNum; $i++) {
+		$myArray[$i] = array();
+		$diskName = explode('.', $return[4+$i*2]);
+		array_push($myArray[$i], $diskName[1]);
+		$diskInfo = $return[5+$i*2];
+                $diskInfoParts = explode('/', $diskInfo);
+                $dotPart = explode(',', $diskInfoParts[4]);
+                $atPart = explode('@', $dotPart[0]);
+                $diskNickName = $atPart[0].$atPart[1];
+                //var_dump($diskNickName);
+                $return = $shell->exec('pfexec iostat -E', $diskNickName);
+                //var_dump($return[1]);
+                $infoParts = explode(' ', $return[1]);
+                //var_dump($infoParts);
+                for ($j = 0; $j < count($infoParts); $j++) {
+                    if ($infoParts[$j] == 'Model:') {
+                        $tmpStr = '';
+                        $j++;
+                        while ($infoParts[$j] != 'Revision:') {
+                            $tmpStr = $tmpStr.$infoParts[$j].' ';
+                            $j++;
+                        }
+                        //var_dump($tmpStr);
+                        array_push($myArray[$i], $tmpStr);
+                    }
+                    if ($infoParts[$j] == 'No:') {
+                        $tmpStr = '';
+                        $j++;
+                        while ($infoParts[$j] != 'Size:') {
+                            if ($infoParts[$j] != '') $tmpStr = $tmpStr.$infoParts[$j];
+                            $j++;
+                        }
+                        //var_dump($tmpStr);
+                        array_push($myArray[$i], $tmpStr);
+                    }
+                    if ($infoParts[$j] == 'Size:') {
+                        $tmpStr = $infoParts[++$j];
+                        //var_dump($tmpStr);
+                        array_push($myArray[$i], $tmpStr);
+                    }
+                }
+		//array_push($myArray[$i], $diskInfo);
+	}
+	//var_dump($myArray);
+	$view->assign('myArray', $myArray);
+        $view->assign('subaction','diskinfo');
+	$view->assign('_baseUrl', $viewOptions['template']['baseUrl']);
+	$view->assign('tplfile', 'element/diskinfo.html');
+	$view->addTitle('diskinfo');
+	$this->display();
+    }
+}
+
+?>

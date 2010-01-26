@@ -1,0 +1,213 @@
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, font, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    outline: 0;
+    /*	font-size: 100%;
+	vertical-align: baseline; */
+    background: transparent;
+}
+body {
+    line-height: 1;
+}
+body, td {
+    font-family: "Lucida Grande",Verdana,Arial,"Bitstream Vera Sans",sans-serif;
+    font-size: 13px;
+    font-size-adjust: none;
+    font-style: normal;
+    font-variant: normal;
+    font-weight: normal;
+    line-height: normal;
+}
+
+ol, ul {
+    list-style: none;
+}
+h1 {
+    display: block;
+    font-size: 2em;
+    font-weight: bold;
+    margin: 0.67em 0;
+}
+h2 {
+    display: block;
+    font-size: 1.5em;
+    font-weight: bold;
+    margin: 0.83em 0;
+}
+h5 {
+    display: block;
+    font-size: 0.83em;
+    font-weight: bold;
+    margin: 1.67em 0;
+}
+p, li, dl, dd, dt {
+    line-height: 140%;
+}
+p, ul, ol, blockquote {
+    font-size: 12px;
+}
+li, dd {
+    margin-bottom: 6px;
+}
+input[type="text"], textarea {
+    -moz-box-sizing: border-box;
+}
+input[type="checkbox"], input[type="radio"] {
+    vertical-align: text-top;
+}
+textarea, input, select {
+    -x-system-font: none;
+    font-family: "Lucida Grande",Verdana,Arial,"Bitstream Vera Sans",sans-serif;
+    font-size: 13px;
+    font-size-adjust: none;
+    font-stretch: normal;
+    font-style: normal;
+    font-variant: normal;
+    font-weight: normal;
+    line-height: 19px;
+    margin: 1px;
+    padding: 3px;
+}
+label {
+    cursor: pointer;
+}
+.hidden, .closed .inside, .hide-if-no-js {
+    display: none;
+}
+.clear {
+    clear: both;
+}
+.updated, .error {
+    -moz-border-radius-bottomleft: 3px;
+    -moz-border-radius-bottomright: 3px;
+    -moz-border-radius-topleft: 3px;
+    -moz-border-radius-topright: 3px;
+    border-style: solid;
+    border-width: 1px;
+    margin: 5px 15px 2px;
+    padding: 0 0.6em;
+}
+.updated p, .error p {
+    line-height: 1;
+    margin: 0.5em 0;
+    padding: 2px;
+}
+.subsubsub {
+    float: left;
+    font-size: 11px;
+    list-style-image: none;
+    list-style-position: outside;
+    list-style-type: none;
+    margin: 8px 0 5px;
+    padding: 0;
+    white-space: nowrap;
+}
+.subsubsub li {
+    display: inline;
+    margin: 0;
+    padding: 0;
+}
+.subsubsub a {
+    line-height: 2;
+    padding: 0.2em;
+    text-decoration: none;
+}
+.subsubsub a.current {
+    -moz-background-clip: border;
+    -moz-background-inline-policy: continuous;
+    -moz-background-origin: padding;
+    background: transparent none repeat scroll 0 0;
+    border: medium none;
+    font-weight: bold;
+}
+.subsubsub a .count, .subsubsub a.current .count {
+    color: #999999;
+    font-weight: normal;
+}
+.alignleft {
+    float: left;
+}
+.alignright {
+    float: right;
+}
+.widefat {
+    -moz-border-radius-bottomleft: 4px;
+    -moz-border-radius-bottomright: 4px;
+    -moz-border-radius-topleft: 4px;
+    -moz-border-radius-topright: 4px;
+    border-collapse: separate;
+    border-spacing: 0;
+    border-style: solid;
+    border-width: 1px;
+    clear: both;
+    margin: 0;
+    width: 100%;
+}
+
+.widefat * {
+    word-wrap: break-word;
+}
+.widefat a {
+    text-decoration: none;
+}
+.widefat .check-column {
+    padding: 0;
+    width: 2.2em;
+}
+.widefat th {
+    line-height: 1.3em;
+    padding: 7px 7px 8px;
+    text-align: left;
+}
+.widefat td, .widefat th {
+    border-bottom-style: solid;
+    border-bottom-width: 1px;
+    font-size: 11px;
+    vertical-align: text-top;
+}
+.widefat .check-column {
+    padding: 0;
+    width: 2.2em;
+}
+.widefat th input {
+    margin: 0 0 0 8px;
+    padding: 0;
+    vertical-align: text-top;
+}
+.widefat tbody th.check-column {
+    padding: 7px 0 22px;
+}
+.widefat td {
+    padding: 7px 7px 5px;
+    vertical-align: top;
+}
+.widefat .num, .column-comments, .column-links, .column-posts, .column-parent {
+    text-align: center;
+}
+.has-sidebar {
+    clear: left;
+    float: left;
+    margin-right: -340px;
+    width: 100%;
+}
+.has-sidebar .has-sidebar-content {
+    margin-right:305px;
+}
+.inner-sidebar {
+    clear: right;
+    float: right;
+    position: relative;
+    width: 280px;
+}
+.invisible {
+    visibility:hidden;
+}

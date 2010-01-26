@@ -1,0 +1,50 @@
+<div class="admin-panel-wrap">
+    <div class="icon32 icon-options-general">
+        <br/>
+    </div>
+    <{if $users}>
+    <div class="admin-panel-wrap">
+        <h2>Users List</h2>
+        <form class="posts-filter" action="edituser" method="post" id="user">
+            <table class="widefat post fixed" cellspacing="0">
+                <thead>
+                    <tr>
+                        <th class="manage-column column-title" style="" scope="col" width="10%">Username</th>
+			<th class="manage-column column-author" style="" scope="col" width="8%">Uid</th>
+			<th class="manage-column column-author" style="" scope="col" width="8%">Gid</th>
+			<th class="manage-column column-author" style="" scope="col">Comment</th>
+			<th class="manage-column column-author" style="" scope="col">homeDir</th>
+			<th class="manage-column column-author" style="" scope="col">Shell</th>
+                        <th class="manage-column column-author" style="" scope="col"></th>
+                        <th class="manage-column column-author" style="" scope="col"></th>
+                    </tr>
+	    	</thead>
+		<tbody>
+        		<{foreach from=$users item=row}>
+			<tr>
+				<{foreach from=$row item=col}>
+				<td><{$col}></td>
+				<{/foreach}>
+				<td>
+					<input class="button-secondary action doaction" type="submit" name = "<{$row[0]}>" value="Edit" />
+	    			</td>
+                                <td>
+					<input class="button-secondary action doaction" type="submit" name = "<{$row[0]}>D" value="Delete" onclick="document.getElementById('user').action='user'"/>
+	    			</td>
+			</tr>
+			<{/foreach}>
+		</tbody>
+            </table>
+        
+        </form>
+
+        <form action="edituser" method="post">
+        <p class="submit">
+            <input class="button-primary" type="submit" value="Add New User" name="adduser" />
+        </p>
+        </form>
+
+    </div>
+    <{else}>
+    <{/if}>
+</div>

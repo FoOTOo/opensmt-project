@@ -1,0 +1,87 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<div class="admin-panel-wrap">
+    <div class="icon32 icon-options-general">
+        <br/>
+    </div>
+    <h2>Edit/Add NFS Share Directory </h2>
+
+    <form action="nfs" method="post">
+        <table class="form-table">
+            <tbody>
+                <tr valign="top">
+                    <th scope="row">
+                        <label>Path:</label>
+                    </th>
+                    <td>
+                        <{if $nfsArg[0]}>
+                            <input class="regular-text" type="text" readonly="" name="path" id="path" value="<{$nfsArg[0]}>"/>
+                        <{else}>
+                            <input class="regular-text" type="text" name="path" id="path" value=""/>
+                        <{/if}>
+                    </td>
+                </tr>
+                <tr valign="top">
+                    <th scope="row">
+                        <label>Read Only:</label>
+                    </th>
+		    <td>
+                        <{if $nfsArg[1] == 'ro' }>
+			    <input type = "checkbox" name = "authority" checked> Set Read Only <p>
+                        <{else}>
+                            <input type = "checkbox" name = "authority" > Set Read Only <p>
+                        <{/if}>
+                    </td>
+                </tr>
+                <tr valign="top">
+                    <th scope="row">
+                        <label>Authorised Network:</label>
+                    </th>
+                    <td>
+                        <input class="regular-text" type="text" name="ip" id="ip" value="<{$nfsArg[2]}>"/>
+                        <select name="mask">
+                            <{if $nfsArg[3] == '0'}>
+                                <option value="0" selected>0</option>
+                            <{else}>
+                                <option value="0" >0</option>
+                            <{/if}>
+                            <{if $nfsArg[3] == '8'}>
+                                <option value="8" selected>8</option>
+                            <{else}>
+                                <option value="8" >8</option>
+                            <{/if}>
+                            <{if $nfsArg[3] == '16'}>
+                                <option value="16" selected>16</option>
+                            <{else}>
+                                <option value="16" >16</option>
+                            <{/if}>
+                            <{if $nfsArg[3] == '24' or $nfsArg[3] == ''}>
+                                <option value="24" selected>24</option>
+                            <{else}>
+                                <option value="24" >24</option>
+                            <{/if}>
+			</select>
+                    </td>
+                </tr>
+                <tr valign="top">
+                    <th scope="row">
+                        <label>Description:</label>
+                    </th>
+                    <td>
+                        <input class="regular-text" type="text" name="description" id="description" value="<{$nfsArg[4]}>"/>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <p class="submit">
+            <input class="button-primary" type="submit" value="Apply Changes" name="editNfs"/>
+        </p>
+    </form>
+</div>
+<script type="text/javascript">
+    selElement = 'path';
+    selPath = document.getElementById('path').getAttribute("value")
+    if (selPath == '') selPath = '/'
+    $('path').addEvent('click',function(){
+        window.open("<{$webUrl}>/file/browser/dir/?dir="+selPath, 'strWindowName', 'strWindowFeatures');
+    })
+</script>
